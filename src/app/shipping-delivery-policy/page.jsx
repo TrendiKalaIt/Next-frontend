@@ -1,8 +1,8 @@
 export default function ShippingDeliveryPage() {
   return (
-    <div className="max-w-4xl mx-auto pt-[80px] p-6 text-gray-800">
+    <div className="max-w-4xl mx-auto md:mt-12 p-6 text-gray-800">
       {/* Title & Effective Date */}
-      <h1 className="text-3xl font-bold font-heading text-[#9CAF88] mb-2">
+      <h1 className="font-heading text-3xl font-bold text-[#9CAF88] mb-2">
         Shipping & Delivery Policy
       </h1>
       <p className=" font-body text-sm text-gray-600 mb-6">

@@ -1,6 +1,6 @@
 export default function PrivacyPolicyPage() {
   return (
-    <div className="container mx-auto mt-10 p-6">
+    <div className="container mx-auto md:mt-10 p-6">
       <div className="max-w-4xl mx-auto text-gray-800">
         {/* Title & Effective Date */}
         <h1 className="font-heading text-3xl font-bold text-[#9CAF88] mb-2">Privacy Policy</h1>

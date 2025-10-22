@@ -3,7 +3,7 @@ export default function CancellationReturnRefund() {
     <div className="md:pt-[110px] max-w-4xl mx-auto p-6 text-gray-800">
 
       {/* Title & Effective Date */}
-      <h1 className="text-3xl font-bold font-heading text-[#9CAF88] mb-2">
+      <h1 className="font-heading text-3xl font-bold text-[#9CAF88] mb-2">
         Cancellation, Return & Refund Policy
       </h1>
       <p className="font-body text-sm text-gray-600 mb-6">
