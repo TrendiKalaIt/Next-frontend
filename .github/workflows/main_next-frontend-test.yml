@@ -24,7 +24,7 @@ jobs:
  
       - name: Install dependencies and build
         run: |
-          cd frontend
+          cd .
           npm install
           npm run build
           # Copy node_modules inside standalone folder so container can find dependencies
