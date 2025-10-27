@@ -56,25 +56,7 @@ const ProductCard = ({ product = {} }) => {
 
 
 
-  // const handleAddToCartClick = () => {
-  //   if (isOutOfStock) {
-  //     toast("Product is out of stock, please add it to wishlist");
-  //     return;
-  //   }
-  //   setModalType("cart");
-  //   setIsModalOpen(true);
-  // };
-
-  // const handleBuyNowClick = () => {
-  //   if (isOutOfStock) {
-  //     toast.error("Product is out of stock");
-  //     return;
-  //   }
-  //   setModalType("buy");
-  //   setIsModalOpen(true);
-  // };
-
-  // When opening modal
+  
   const handleAddToCartClick = (e) => {
     e.stopPropagation(); // <-- stop bubbling to card click
     if (isOutOfStock) {
