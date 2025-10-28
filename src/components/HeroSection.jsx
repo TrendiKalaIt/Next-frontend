@@ -13,7 +13,7 @@ const HeroSection = () => {
     <section className="relative text-gray-800 overflow-hidden">
       {/* Background image */}
       <img
-        src="/OutfitImg1.webp"
+        src="/outfitImg.webp"
         alt="Outfit Background"
         loading="eager"
         decoding="async"
@@ -27,9 +27,9 @@ const HeroSection = () => {
           <div className="w-full md:w-1/2 flex flex-col h-full lg:ms-7">
             <div className="relative h-full flex justify-center md:justify-end xl:pe-20">
               <img
-                src="/images/women/Anarkali/AFSANA (2).png"
+                src="madubala.webp"
                 alt="madubala"
-                className="rounded-b-full object-cover object-bottom md:h-[340px] w-[250px] sm:w-[300px] hidden md:block"
+                className="rounded-b-full object-cover object-top md:h-[340px] w-[250px] sm:w-[300px] hidden md:block"
                 loading="eager"
                 decoding="async"
               />
@@ -64,8 +64,8 @@ const HeroSection = () => {
             <div className="w-full h-auto md:h-[340px] flex justify-center items-center lg:p-4 pb-2 md:p-8">
               <div className="relative w-screen md:max-w-[300px] mx-auto min-h-[340px] overflow-hidden">
                 <img
-                  src="/madhubala (6).webp"
-                  alt="Static Right"
+                  src="/madhubala-dress-with-dupatta-trendikala.png"
+                  alt="madhubala-dress-with-dupatta-trendikala"
                   className="relative w-full h-auto object-cover rounded-b-full md:rounded-b-none md:rounded-t-full opacity-100"
                   style={{ aspectRatio: "3/4" }}
                   loading="eager"
