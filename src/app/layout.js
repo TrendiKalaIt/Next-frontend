@@ -10,6 +10,11 @@ import ClientToaster from "./ClientToaster";
 export const metadata = {
   title: "TrendiKala",
   description: "Best online store for fashion products",
+  icons: {
+    icon: "/trendikala_logo_bg.webp", 
+    shortcut: "/trendikala_logo_bg.webp", 
+    apple: "/trendikala_logo_bg.webp", 
+  },
 };
 
 const navLinks = [
