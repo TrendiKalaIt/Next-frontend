@@ -76,7 +76,7 @@ const EnquiryForm = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="max-w-2xl mx-auto bg-white p-6 rounded-xl m-4 shadow-md"
+            className="max-w-2xl mx-auto bg-white p-6 rounded-xl m-4 shadow-md md:mt-16"
         >
             <h2 className="font-heading text-2xl font-bold text-[#9CAF88] mb-4 text-center">
                 Enquiry & Cancellation Form

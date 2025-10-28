@@ -1,11 +1,14 @@
-"use client";
+import EnquiryUsPage from "@/app/enquiry-us/EnquiryForm";
 
-import EnquiryForm from "./EnquiryForm";
+// ✅ SEO Meta Tags
+export const metadata = {
+  title: "Enquiry Form | Connect with Trendikala Team",
+  description:
+    "Have bulk orders or business queries? Fill out the Trendikala Enquiry Form to connect with our support and sales team for quick assistance.",
+  keywords:
+    "Trendikala Enquiry, Business Query, Bulk Order, Wholesale Kurtis, Contact Trendikala, Partnership, Fashion Enquiry, Support",
+};
 
-export default function EnquiryUsPage() {
-  return (
-    <div className="min-h-screen bg-gray-50 md:py-16">
-      <EnquiryForm />
-    </div>
-  );
+export default function Page() {
+  return <EnquiryUsPage />;
 }

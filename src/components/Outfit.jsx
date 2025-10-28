@@ -70,7 +70,7 @@ const Outfit = () => {
             {/* Mobile version (fallback) */}
             <img
               src="/mobile-offer-banner.webp"
-              alt="Offer banner"
+              alt="mobile Offer banner for first 100 orders"
               className="w-full h-full object-contain"
               loading="lazy"
             />
@@ -91,7 +91,7 @@ const Outfit = () => {
               <SwiperSlide key={img.id}>
                 <img
                   src={img.url}
-                  alt={`Side ${img.id}`}
+                  alt={`new outfit image ${img.id}`}
                   className="w-full lg:w-[300px] h-full object-top bg-blue-50 rounded-2xl object-cover"
                   loading="lazy"
                 />

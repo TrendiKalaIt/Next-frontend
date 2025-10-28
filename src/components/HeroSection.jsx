@@ -14,7 +14,7 @@ const HeroSection = () => {
       {/* Background image */}
       <img
         src="/outfitImg.webp"
-        alt="Outfit Background"
+        alt="Outfit Background home page"
         loading="eager"
         decoding="async"
         fetchPriority="high"
@@ -28,7 +28,7 @@ const HeroSection = () => {
             <div className="relative h-full flex justify-center md:justify-end xl:pe-20">
               <img
                 src="madubala.webp"
-                alt="madubala"
+                alt="madubala "
                 className="rounded-b-full object-cover object-top md:h-[340px] w-[250px] sm:w-[300px] hidden md:block"
                 loading="eager"
                 decoding="async"

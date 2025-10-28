@@ -60,7 +60,7 @@ const NewArrivals = () => {
       >
         <img
           src={current.imageUrl}
-          alt={`Collection ${idx + 1}`}
+          alt={`offer banner image ${idx + 1}`}
           className="absolute w-full h-full"
           loading="lazy"
         />

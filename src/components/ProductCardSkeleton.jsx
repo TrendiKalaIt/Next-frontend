@@ -14,8 +14,7 @@ const ProductCardSkeleton = () => {
       <div className="h-2/5 p-4 flex flex-col justify-between bg-white rounded-b-3xl space-y-2">
         <div className="space-y-2">
           <div className="h-4 w-20 bg-gray-300 rounded" />       {/* Category */}
-          <div className="h-5 w-40 bg-gray-300 rounded" />       {/* Product Name */}
-          <div className="h-4 w-32 bg-gray-300 rounded" />       {/* Description */}
+         
         </div>
 
         {/* Buttons */}
