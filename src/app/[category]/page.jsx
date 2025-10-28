@@ -16,6 +16,9 @@ export async function generateMetadata({ params }) {
         title: "Category Not Found | Trendikalait",
         description: "The requested category could not be found.",
         keywords: "category, not found, Trendikalait",
+        alternates: {
+          canonical: "https://www.trendikalait.com/categories",
+        },
       };
     }
 
@@ -27,6 +30,11 @@ export async function generateMetadata({ params }) {
       keywords:
         catData.metaKeywords ||
         `${catData.name}, buy ${catData.name}, Trendikalait`,
+      alternates: {
+        canonical:
+          catData.canonicalUrl ||
+          `https://www.trendikalait.com/${catData.slug}`,
+      },
     };
   } catch (err) {
     console.error("Metadata fetch error:", err.message);
@@ -35,6 +43,9 @@ export async function generateMetadata({ params }) {
       description:
         "Explore all product categories at Trendikalait. Discover the best deals and styles.",
       keywords: "fashion, categories, Trendikalait",
+      alternates: {
+        canonical: "https://www.trendikalait.com/categories",
+      },
     };
   }
 }

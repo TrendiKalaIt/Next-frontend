@@ -5,6 +5,9 @@ export const metadata = {
     "Discover Trendikala’s latest Anarkali, Long and Short Kurtis, and Dresses. Shop premium quality ethnic wear for women at affordable prices.",
   keywords:
     "Trendikala, Women’s Fashion, Kurtis Online, Anarkali Dress, Trendy Outfits, Indian Wear, Ethnic Clothing, Online Boutique",
+    alternates: {
+    canonical: "https://www.trendikala.com",
+  },
 };
 
 // ✅ Import your client component

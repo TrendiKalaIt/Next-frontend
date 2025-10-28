@@ -15,6 +15,9 @@ export async function generateMetadata({ params }) {
         title: "Product Not Found | Trendikala",
         description: "The requested product could not be found.",
         keywords: "Trendikala, Product Not Found",
+        alternates: {
+          canonical: "https://www.trendikala.com/products",
+        },
       };
     }
 
@@ -27,6 +30,11 @@ export async function generateMetadata({ params }) {
       keywords:
         data.metaKeywords ||
         `${data.productName}, buy ${data.productName}, Trendikala`,
+      alternates: {
+        canonical:
+          data.canonicalUrl ||
+          `https://www.trendikala.com/${category}/${data.slug}`,
+      },
     };
   } catch (error) {
     console.error("Error generating product metadata:", error);
@@ -35,6 +43,9 @@ export async function generateMetadata({ params }) {
       description:
         "Discover beautiful kurtis and dresses at Trendikala, designed with elegance and comfort.",
       keywords: "Trendikala, Women's Kurtis, Ethnic Wear, Online Shopping",
+      alternates: {
+        canonical: "https://www.trendikala.com",
+      },
     };
   }
 }
@@ -42,3 +53,4 @@ export async function generateMetadata({ params }) {
 export default function ProductPage({ params }) {
   return <ProductClient productSlug={params.product} />;
 }
+  

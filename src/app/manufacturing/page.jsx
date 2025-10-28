@@ -7,6 +7,9 @@ export const metadata = {
     "Trendikala is a leading manufacturer of women’s ethnic wear. We design, stitch, and deliver premium quality Kurtis and Dresses across India.",
   keywords:
     "Trendikala Manufacturing, Kurtis Manufacturer, Dress Maker, Ethnic Wear Factory, Indian Garment Industry, Women’s Clothing Production, Bulk Orders",
+     alternates: {
+    canonical: "https://www.trendikala.com/manufacturing",
+  },
 };
 
 export default function ManufacturingPage() {
