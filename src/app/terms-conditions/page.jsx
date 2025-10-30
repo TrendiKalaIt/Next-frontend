@@ -1,3 +1,14 @@
+export const metadata = {
+  title: "Terms & Conditions | Trendikala",
+  description:
+    "Read Trendikala's Terms & Conditions to understand our website usage policies, purchase terms, and user responsibilities.",
+  keywords:
+    "Trendikala Terms and Conditions, Terms of Use, Trendikala Policy, User Agreement, Online Shopping Terms",
+  robots: "noindex, nofollow",
+  alternates: {
+    canonical: "https://www.trendikala.com/terms-conditions",
+  },
+};
 export default function TermsConditionsPage() {
   return (
     <div className="max-w-4xl mx-auto md:pt-[70px] p-6 text-gray-800">

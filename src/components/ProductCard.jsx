@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Heart, Check } from "lucide-react";
+import { Heart, Check, AlertCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
@@ -56,7 +56,7 @@ const ProductCard = ({ product = {} }) => {
 
 
 
-  
+
   const handleAddToCartClick = (e) => {
     e.stopPropagation(); // <-- stop bubbling to card click
     if (isOutOfStock) {
@@ -325,8 +325,9 @@ const ProductCard = ({ product = {} }) => {
 
             </div>
 
+
             {/* Quantity */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 relative group">
               <span className="text-md text-gray-600">Qty:</span>
               <div className="flex items-center border rounded-full overflow-hidden">
                 <button
@@ -345,7 +346,16 @@ const ProductCard = ({ product = {} }) => {
                   +
                 </button>
               </div>
+
+              {/* Tooltip (same as Add to Cart button) */}
+              {(!selectedColor || !selectedSize) && (
+                <span className="absolute left-1/2 -translate-x-1/2 -top-8 bg-black/70 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 flex">
+                  <AlertCircle size={17} className="text-yellow-500 mr-2 font-bold" />
+                  Please select size and color
+                </span>
+              )}
             </div>
+
 
             {/* Footer */}
             <div className="flex justify-end gap-2 pt-2">
@@ -355,34 +365,46 @@ const ProductCard = ({ product = {} }) => {
               >
                 Cancel
               </button>
-              {modalType === "cart" ? (
-                <button
-                  className="px-3 py-1 text-sm bg-green-600 text-white rounded-full disabled:bg-gray-400 disabled:cursor-not-allowed"
-                  onClick={handleAddToCart}
-                  disabled={
-                    !selectedColor ||
-                    !selectedSize ||
-                    quantity > getSelectedSizeStock() ||
-                    getSelectedSizeStock() === 0
-                  }
-                >
-                  Add to Cart
-                </button>
-              ) : (
-                <button
-                  className="px-3 py-1 text-sm bg-green-600 text-white rounded-full disabled:bg-gray-400 disabled:cursor-not-allowed"
-                  onClick={handleCheckout}
-                  disabled={
-                    !selectedColor ||
-                    !selectedSize ||
-                    quantity > getSelectedSizeStock() ||
-                    getSelectedSizeStock() === 0
-                  }
-                >
-                  Checkout
-                </button>
-              )}
+
+              {/*  Tooltip Wrapper */}
+              <div className="relative group">
+                {modalType === "cart" ? (
+                  <button
+                    className="px-3 py-1 text-sm bg-green-600 text-white rounded-full disabled:bg-gray-400 disabled:cursor-not-allowed"
+                    onClick={handleAddToCart}
+                    disabled={
+                      !selectedColor ||
+                      !selectedSize ||
+                      quantity > getSelectedSizeStock() ||
+                      getSelectedSizeStock() === 0
+                    }
+                  >
+                    Add to Cart
+                  </button>
+                ) : (
+                  <button
+                    className="px-3 py-1 text-sm bg-green-600 text-white rounded-full disabled:bg-gray-400 disabled:cursor-not-allowed"
+                    onClick={handleCheckout}
+                    disabled={
+                      !selectedColor ||
+                      !selectedSize ||
+                      quantity > getSelectedSizeStock() ||
+                      getSelectedSizeStock() === 0
+                    }
+                  >
+                    Checkout
+                  </button>
+                )}
+
+                {/*  Tooltip text */}
+                {(!selectedColor || !selectedSize) && (
+                  <span className="absolute left-1/2 -translate-x-1/2 -top-8 bg-black/70 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 flex ">
+                    <AlertCircle size={17} className="text-yellow-500 mr-2 font-bold" /> Please select size and color
+                  </span>
+                )}
+              </div>
             </div>
+
           </Dialog.Panel>
         </div>
       </Dialog>

@@ -10,6 +10,10 @@ export const metadata = {
      alternates: {
     canonical: "https://www.trendikala.com/categories",
   },
+  robots: {
+    index: true,  
+    follow: true,  
+  },
 };
 
 export default function CategoriesPage() {

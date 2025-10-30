@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
         alternates: {
           canonical: "https://www.trendikalait.com/categories",
         },
-        robots: "noindex, nofollow", // 👈 optional for missing pages
+        robots: "noindex, nofollow", 
       };
     }
 

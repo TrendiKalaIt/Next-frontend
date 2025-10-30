@@ -8,6 +8,10 @@ export const metadata = {
     alternates: {
     canonical: "https://www.trendikala.com",
   },
+  robots: {
+    index: true,  
+    follow: true,  
+  },
 };
 
 // ✅ Import your client component

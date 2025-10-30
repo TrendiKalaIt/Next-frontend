@@ -67,13 +67,13 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-lg mb-4 font-home">TRENDI KALA ACCEPTS</h3>
               <div className="flex flex-wrap md:justify-start gap-4 text-2xl text-gray-700">
-                <SiRazorpay title="Razorpay" className="hover:text-blue-600 cursor-pointer transition-colors" />
-                <SiGooglepay title="Google Pay" className="hover:text-green-600 cursor-pointer transition-colors" />
-                <SiPaypal title="Paypal" className="hover:text-blue-500 cursor-pointer transition-colors" />
-                <FaCcMastercard title="Mastercard" className="hover:text-red-600 cursor-pointer transition-colors" />
-                <FaCcVisa title="Visa" className="hover:text-blue-700 cursor-pointer transition-colors" />
-                <SiAmazonpay title="Amazon Pay" className="hover:text-orange-500 cursor-pointer transition-colors" />
-                <FaCcApplePay title="Apple Pay" className="hover:text-black cursor-pointer transition-colors" />
+                <SiRazorpay title="Razorpay" className="hover:text-blue-600 " />
+                <SiGooglepay title="Google Pay" className="hover:text-green-600 " />
+                <SiPaypal title="Paypal" className="hover:text-blue-500 " />
+                <FaCcMastercard title="Mastercard" className="hover:text-red-600 " />
+                <FaCcVisa title="Visa" className="hover:text-blue-700 " />
+                <SiAmazonpay title="Amazon Pay" className="hover:text-orange-500 " />
+                <FaCcApplePay title="Apple Pay" className="hover:text-black " />
               </div>
             </div>
           </div>

@@ -10,6 +10,10 @@ export const metadata = {
     alternates: {
     canonical: "https://www.trendikala.com/about-us",
   },
+   robots: {
+    index: true,  
+    follow: true,  
+  },
 };
 
 export default function Page() {

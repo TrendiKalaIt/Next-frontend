@@ -18,6 +18,10 @@ export async function generateMetadata({ params }) {
         alternates: {
           canonical: "https://www.trendikala.com/products",
         },
+        robots: {
+          index: true,
+          follow: true,
+        },
       };
     }
 
@@ -53,4 +57,3 @@ export async function generateMetadata({ params }) {
 export default function ProductPage({ params }) {
   return <ProductClient productSlug={params.product} />;
 }
-  
