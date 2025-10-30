@@ -59,9 +59,9 @@ const CategoriesPage = () => {
             <p className="font-home text-gray-600 text-lg max-w-md mx-auto md:mx-0">
               Discover styles that match your vibe! Browse our collections and find your perfect fit.
             </p>
-            <button className="font-heading bg-[#9caf88de] text-white px-6 py-3 rounded-lg hover:bg-[#9CAF88] hover:ring-1 transition font-medium shadow-md">
+            <p className=" w-[160px] font-heading bg-[#9caf88de] text-white px-6 py-3 mt-10 rounded-lg font-medium shadow-md">
               Shop Now →
-            </button>
+            </p>
           </div>
         </div>
 

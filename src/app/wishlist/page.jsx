@@ -1,4 +1,4 @@
-"use client"; // Needed because we use hooks and Redux
+"use client"; 
 
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,7 +17,7 @@ const WishlistPage = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      router.push("/login"); // Next.js navigation
+      router.push("/login"); 
     } else {
       dispatch(fetchWishlist());
     }

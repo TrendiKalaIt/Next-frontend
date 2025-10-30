@@ -45,8 +45,8 @@ export default function AboutUs() {
 
           <div className='lg:w-1/3 flex justify-center gap-1'>
             {[
-              { src: '/Founder.webp', name: 'Manshi Agrawal', role: 'Founder' },
-              { src: '/co-founder.png', name: 'Raj Laxmi', role: 'Co-Founder' }
+              { src: '/manshi-agrawal.webp', name: 'Manshi Agrawal', role: 'Founder' },
+              { src: '/raj-laxmi.png', name: 'Raj Laxmi', role: 'Co-Founder' }
             ].map((person, i) => (
               <div key={i} className="w-full">
                 <img
@@ -55,7 +55,7 @@ export default function AboutUs() {
                   className="rounded-2xl w-[170px] h-[260px] object-cover"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = `https://placehold.co/600x400/E5E7EB/6B7280?text=Image+Not+Found`;
+                    e.target.src = `https://placehold.co/600x400/E5E7EB/6B7280?text=Founder`;
                   }}
                 />
                 <p className='font-semobold font-home text-[#9CAF88] pt-2 lg:text-left text-center'>{person.name}</p>

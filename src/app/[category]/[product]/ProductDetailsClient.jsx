@@ -465,7 +465,7 @@ const ProductDetailPage = () => {
             {/* image/video modal with carousel */}
             {isOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-                    <div className="relative max-w-4xl w-full p-4 flex flex-col items-center">
+                    <div className="relative max-w-4xl w-full p-4 flex flex-col items-center mt-20 md:mt-14">
                         {/* Close Button */}
                         <button
                             onClick={() => setIsOpen(false)}
@@ -504,9 +504,9 @@ const ProductDetailPage = () => {
                                 <img
                                     src={product.media[currentIndex].url}
                                     alt={product.media[currentIndex].url.split('/').pop().replace(/\.[^/.]+$/, '')}
-                                    className="w-full h-auto max-h-[90vh] rounded-lg object-contain"
+                                    className="w-full h-auto max-h-[80vh] rounded-lg object-contain"
                                 />
-                                <p className="text-sm text-gray-700 mt-2">
+                                <p className="text-sm text-white mt-2">
                                     {product.media[currentIndex].url.split('/').pop().replace(/\.[^/.]+$/, '')}
                                 </p>
                             </div>

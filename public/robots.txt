@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /suits
+Disallow: /ethnic-wear
+Disallow: /cancellation-return-policy
+Disallow: /privacy-policy
+Disallow: /terms-conditions
+Disallow: /shipping-delivery-policy
+ 
+Allow: /
+ 
+Sitemap: https://www.trendikala.com/sitemap.xml

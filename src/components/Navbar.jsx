@@ -5,7 +5,7 @@ import { Heart, ShoppingCart, Search, User, Menu, X } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '@/store/authSlice';
-import { selectCartCount, clearLocalCart } from '@/store/cartSlice';
+import { selectCartCount, clearLocalCart,fetchCart  } from '@/store/cartSlice';
 import { selectWishlistCount, fetchWishlist } from '@/store/wishlistSlice';
 import { persistor } from '@/store/store';
 
@@ -25,9 +25,11 @@ export default function Navbar({ links = [] }) {
 
   useEffect(() => {
     if (user) {
+      dispatch(fetchCart());
       dispatch(fetchWishlist());
     }
   }, [dispatch, user]);
+  
 
   useEffect(() => {
     if (pathname === '/') {

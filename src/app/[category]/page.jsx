@@ -4,6 +4,9 @@ import CategoryClient from "@/app/[category]/CategoryClient";
 export async function generateMetadata({ params }) {
   const { category } = params;
 
+  // 🧩 Categories you want to block from indexing
+  const noIndexCategories = ["suits", "ethnic-wear"];
+
   try {
     const res = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/api/categories/slug/${category}`
@@ -19,6 +22,7 @@ export async function generateMetadata({ params }) {
         alternates: {
           canonical: "https://www.trendikalait.com/categories",
         },
+        robots: "noindex, nofollow", // 👈 optional for missing pages
       };
     }
 
@@ -35,6 +39,10 @@ export async function generateMetadata({ params }) {
           catData.canonicalUrl ||
           `https://www.trendikalait.com/${catData.slug}`,
       },
+      // 👇 Add dynamic robots tag here
+      robots: noIndexCategories.includes(catData.slug)
+        ? "noindex, nofollow"
+        : "index, follow",
     };
   } catch (err) {
     console.error("Metadata fetch error:", err.message);
@@ -46,6 +54,7 @@ export async function generateMetadata({ params }) {
       alternates: {
         canonical: "https://www.trendikalait.com/categories",
       },
+      robots: "index, follow",
     };
   }
 }
