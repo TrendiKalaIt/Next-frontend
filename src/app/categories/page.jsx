@@ -7,13 +7,15 @@ export const metadata = {
     "Explore all product categories at Trendikala including Anarkali, Long Kurti, Short Kurti, and Dresses. Shop by your favorite style today.",
   keywords:
     "Trendikala Categories, Anarkali Kurtis, Long Kurtis, Short Kurtis, Ethnic Dresses, Indian Wear, Women’s Fashion, Online Shopping",
-     alternates: {
+  alternates: {
     canonical: "https://www.trendikala.com/categories",
   },
   robots: {
-    index: true,  
-    follow: true,  
+    index: true,
+    follow: true,
   },
+  authors: [{ name: "Trendikala", url: "https://www.trendikala.com" }],
+
 };
 
 export default function CategoriesPage() {

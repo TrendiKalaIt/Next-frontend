@@ -8,11 +8,13 @@ export const metadata = {
   alternates: {
     canonical: "https://www.trendikala.com/privacy-policy",
   },
+  authors: [{ name: "Trendikala", url: "https://www.trendikala.com" }],
+
 };
 export default function PrivacyPolicyPage() {
   return (
     <>
-     
+
       <div className="container mx-auto md:mt-10 p-6">
         <div className="max-w-4xl mx-auto text-gray-800">
           {/* Title & Effective Date */}

@@ -8,6 +8,8 @@ export const metadata = {
   alternates: {
     canonical: "https://www.trendikala.com/terms-conditions",
   },
+  authors: [{ name: "Trendikala", url: "https://www.trendikala.com" }],
+
 };
 export default function TermsConditionsPage() {
   return (

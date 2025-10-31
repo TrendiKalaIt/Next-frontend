@@ -7,13 +7,15 @@ export const metadata = {
     "Have bulk orders or business queries? Fill out the Trendikala Enquiry Form to connect with our support and sales team for quick assistance.",
   keywords:
     "Trendikala Enquiry, Business Query, Bulk Order, Wholesale Kurtis, Contact Trendikala, Partnership, Fashion Enquiry, Support",
-    alternates: {
+  alternates: {
     canonical: "https://www.trendikala.com/enquiry-us",
   },
   robots: {
-    index: true,  
-    follow: true,  
+    index: true,
+    follow: true,
   },
+  authors: [{ name: "Trendikala", url: "https://www.trendikala.com" }],
+
 };
 
 export default function Page() {

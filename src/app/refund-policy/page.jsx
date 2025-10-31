@@ -9,6 +9,8 @@ export const metadata = {
   alternates: {
     canonical: "https://www.trendikala.com/refund-policy",
   },
+  authors: [{ name: "Trendikala", url: "https://www.trendikala.com" }],
+
 };
 export default function CancellationReturnRefund() {
   return (

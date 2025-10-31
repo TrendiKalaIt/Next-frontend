@@ -4,15 +4,17 @@ export const metadata = {
     "Learn about Trendikala's Shipping & Delivery Policy, including delivery timelines, locations, and charges for your online fashion orders.",
   keywords:
     "Trendikala Shipping Policy, Delivery Policy, Shipping Charges, Delivery Timelines, Trendikala Orders",
-  robots: "noindex, nofollow", 
+  robots: "noindex, nofollow",
   alternates: {
     canonical: "https://www.trendikala.com/shipping-delivery-policy",
   },
+  authors: [{ name: "Trendikala", url: "https://www.trendikala.com" }],
+
 };
 export default function ShippingDeliveryPage() {
   return (
     <>
-   
+
       <div className="max-w-4xl mx-auto md:mt-12 p-6 text-gray-800">
         {/* Title & Effective Date */}
         <h1 className="font-heading text-3xl font-bold text-[#9CAF88] mb-2">

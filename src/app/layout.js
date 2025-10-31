@@ -11,9 +11,13 @@ export const metadata = {
   title: "TrendiKala",
   description: "Best online store for fashion products",
   icons: {
-    icon: "/trendikala_logo_bg.webp", 
-    shortcut: "/trendikala_logo_bg.webp", 
-    apple: "/trendikala_logo_bg.webp", 
+    icon: "/trendikala_logo_bg.webp",
+    shortcut: "/trendikala_logo_bg.webp",
+    apple: "/trendikala_logo_bg.webp",
+  },
+  other: {
+    // ✅ Google Site Verification Tag
+    "google-site-verification": "aNV_TcSg2PToCYYUGiF0TuyvMbq-P9S9JFivu-kbDuU",
   },
 };
 
@@ -27,9 +31,31 @@ const navLinks = [
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* ✅ Google Analytics Script (Visible in Ctrl+U) */}
+        
+        
+        
+        
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-5PVN410KDV"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-5PVN410KDV');
+            `,
+          }}
+        />
+      </head>
+
       <body>
         <RootProvider>
-          <ClientToaster /> 
+          <ClientToaster />
           <NewUpdatesMsg />
           <Navbar links={navLinks} />
           <main>{children}</main>
