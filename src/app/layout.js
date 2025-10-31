@@ -19,6 +19,7 @@ export const metadata = {
     // ✅ Google Site Verification Tag
     "google-site-verification": "aNV_TcSg2PToCYYUGiF0TuyvMbq-P9S9JFivu-kbDuU",
   },
+  author: "Trendikala",
 };
 
 const navLinks = [
@@ -33,10 +34,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         {/* ✅ Google Analytics Script (Visible in Ctrl+U) */}
-        
-        
-        
-        
+
+
+
+
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-5PVN410KDV"

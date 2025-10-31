@@ -12,7 +12,7 @@ export const metadata = {
     index: true,
     follow: true,
   },
-  authors: [{ name: "Trendikala", url: "https://www.trendikala.com" }],
+  
 };
 
 // ✅ Import your client component

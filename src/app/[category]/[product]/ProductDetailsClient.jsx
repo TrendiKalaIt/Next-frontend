@@ -45,7 +45,7 @@ const ProductDetailPage = () => {
 
     const reviews = useSelector((state) => state.review.reviews);
 
-    const { description = "No description available" } = product || {};
+    const { description = "No description available" } = product || ;
 
     // Fetch product by slug
     useEffect(() => {
@@ -177,7 +177,7 @@ const ProductDetailPage = () => {
     if (!product) return <div className="text-center text-red-500 mt-10">Product not found.</div>;
 
     const avgRating = getAvgRating(product.reviews);
-    const currentSizeObj = product.sizes?.find((s) => s.size === selectedSize) || {};
+    const currentSizeObj = product.sizes?.find((s) => s.size === selectedSize) || ;
     const discountPercent = currentSizeObj.discountPrice
         ? Math.round(((currentSizeObj.price - currentSizeObj.discountPrice) / currentSizeObj.price) * 100)
         : 0;

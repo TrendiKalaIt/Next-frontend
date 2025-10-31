@@ -77,7 +77,7 @@ function CartPage() {
           name="shipping"
           value={value}
           checked={value === 'deliveryCharge'}
-          onChange={() => {}}
+          onChange={() => }
           className="form-radio accent-green-600 h-5 w-5"
         />
         <span className="ml-3 text-gray-700 text-lg">{label}</span>

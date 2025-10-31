@@ -10,7 +10,7 @@ import { addToWishlist, removeFromWishlist } from "../store/wishlistSlice";
 import { setOrderDetails } from "../store/checkoutSlice";
 import { Dialog } from "@headlessui/react";
 
-const ProductCard = ({ product = {} }) => {
+const ProductCard = ({ product =  }) => {
   const {
     media = [],
     category = "Category",

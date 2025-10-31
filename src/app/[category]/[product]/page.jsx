@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
           index: true,
           follow: true,
         },
-        authors: [{ name: "Trendikala", url: "https://www.trendikala.com" }],
+        
 
       };
     }

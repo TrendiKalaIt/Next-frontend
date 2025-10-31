@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
           canonical: "https://www.trendikalait.com/categories",
         },
         robots: "noindex, nofollow",
-        authors: [{ name: "Trendikala", url: "https://www.trendikala.com" }],
+        
       };
     }
 
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
       robots: noIndexCategories.includes(catData.slug)
         ? "noindex, nofollow"
         : "index, follow",
-      authors: [{ name: "Trendikala", url: "https://www.trendikala.com" }],
+      
     };
   } catch (err) {
     console.error("Metadata fetch error:", err.message);
