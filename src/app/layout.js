@@ -16,10 +16,10 @@ export const metadata = {
     apple: "/trendikala_logo_bg.webp",
   },
   other: {
-    // ✅ Google Site Verification Tag
+    // ✅ Custom meta tags (rendered in <head>)
     "google-site-verification": "aNV_TcSg2PToCYYUGiF0TuyvMbq-P9S9JFivu-kbDuU",
+    author: "Trendikala",
   },
-  author: "Trendikala",
 };
 
 const navLinks = [
@@ -33,11 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* ✅ Google Analytics Script (Visible in Ctrl+U) */}
-
-
-
-
+        
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-5PVN410KDV"
