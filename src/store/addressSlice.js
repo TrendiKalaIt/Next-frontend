@@ -35,7 +35,7 @@ export const saveNewAddress = createAsyncThunk(
 const addressSlice = createSlice({
   name: 'address',
   initialState: { addresses: [], loading: false },
-  reducers: ,
+  reducers: {},
   extraReducers: builder => {
     builder
       .addCase(fetchAddresses.fulfilled, (state, action) => { state.addresses = action.payload; })

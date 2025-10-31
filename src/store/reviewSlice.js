@@ -20,7 +20,7 @@ export const createReview = createAsyncThunk(
         {
           headers: token
             ? { Authorization: `Bearer ${token}` }
-            : ,
+            : {},
           // axios FormData ke liye khud Content-Type set karega
         }
       );

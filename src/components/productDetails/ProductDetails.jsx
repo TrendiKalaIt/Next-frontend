@@ -1,15 +1,15 @@
 import React from 'react';
  
 const ProductDetails = ({ productData }) => {
-  const data = productData || ;
+  const data = productData || {};
   const {
     productName,
     brand,
-    description = ,
+    description = {},
     sizes,
     sizeShape = [],
     materialWashing = [],
-    details = ,
+    details = {},
   } = data;
  
   const {

@@ -8,7 +8,7 @@ const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/cart`;
 const authHeaders = () => ({
   headers: typeof window !== 'undefined'
     ? { Authorization: `Bearer ${localStorage.getItem('token')}` }
-    : ,
+    : {},
 });
 
 const prepareItemsForBackend = (items) =>

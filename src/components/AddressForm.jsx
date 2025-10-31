@@ -10,7 +10,7 @@ const AddressForm = ({
   setSelectedAddress,
   guestMode = false,
   address = null,
-  onAddressChange = () => ,
+  onAddressChange = () => {},
 }) => {
   const router = useRouter();
 
@@ -35,10 +35,10 @@ const AddressForm = ({
     if (address) setFormData(address);
   }, [address]);
 
-  const [formErrors, setFormErrors] = useState();
+  const [formErrors, setFormErrors] = useState({});
 
   const validateForm = () => {
-    const errors = ;
+    const errors = {};
     if (!formData.fullName.trim())
       errors.fullName = 'Full Name is required';
     if (!formData.streetAddress.trim())
@@ -140,7 +140,7 @@ const AddressForm = ({
         await axios.default.get(`${process.env.NEXT_PUBLIC_API_URL}/api/addresses/my`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-      } catch (err) 
+      } catch (err) {}
     } catch (error) {
       const errorMessage = error.response?.data?.message || 'Failed to save address.';
       toast.error(errorMessage);
