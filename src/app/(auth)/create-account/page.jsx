@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
 const SignUp = () => {
-  
+
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [fullName, setFullName] = useState('');
@@ -183,6 +183,17 @@ const SignUp = () => {
             className="font-home bg-[#93A87E] w-full hover:bg-[#93a87eae] text-white font-bold py-2 px-8 rounded-full transition duration-200"
           >
             SIGN UP
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/auth/google`;
+            }}
+            className="mt-4 w-full border border-[#35894E] text-[#35894E] font-bold py-1 px-4 rounded-full hover:bg-green-50 transition"
+          >
+            <img src="/Google__G__logo.png" alt="Google" className="inline w-[30.68px] h-[30.68px] mr-2" />
+            Sign up with Google
           </button>
         </form>
 

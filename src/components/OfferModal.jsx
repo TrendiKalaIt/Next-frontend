@@ -33,7 +33,7 @@ export default function OfferModal() {
     useEffect(() => {
         if (!showModal) return;
 
-        setCountdown(5);
+        setCountdown(3);
         setCanClose(false);
 
         const timer = setInterval(() => {

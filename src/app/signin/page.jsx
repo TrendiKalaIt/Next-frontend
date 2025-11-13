@@ -141,6 +141,18 @@ const SignIn = () => {
                     >
                         {loading ? 'Signing in...' : 'SIGN IN'}  {/*  dynamic button text */}
                     </button>
+
+                    <button
+                        type="button"
+                        onClick={() => {
+                            window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/auth/google`;
+                        }}
+                        className="mt-4 w-full border border-[#35894E] text-[#35894E] font-bold py-1 px-4 rounded-full hover:bg-green-50 transition"
+                    >
+                        <img src="/Google__G__logo.png" alt="Google" className="inline w-[30.68px] h-[30.68px] mr-2" />
+                        Sign in with Google
+                    </button>
+
                 </form>
 
                 {/* Signup Link */}

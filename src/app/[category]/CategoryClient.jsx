@@ -10,6 +10,17 @@ const CategoryPage = () => {
   const { category } = useParams(); // slug from URL
   const router = useRouter();
 
+    // ⚠️ Ignore special routes (not real categories)
+  if (category === "google-success" || category === "auth-success") {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <h2 className="text-3xl font-bold text-green-600">Google Login Successful!</h2>
+        <p className="text-gray-500 mt-4">Redirecting to homepage...</p>
+      </div>
+    );
+  }
+
+
   const [categoryData, setCategoryData] = useState(null);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
