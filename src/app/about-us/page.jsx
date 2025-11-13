@@ -1,6 +1,6 @@
 import AboutClient from "./AboutClient";
 
-// ✅ Basic SEO Meta Tags
+//  Basic SEO Meta Tags
 export const metadata = {
   title: "About Trendikala | Premium Ethnic Fashion for Women",
   description:

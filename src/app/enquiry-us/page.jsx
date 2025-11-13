@@ -1,6 +1,6 @@
 import EnquiryUsPage from "@/app/enquiry-us/EnquiryForm";
 
-// ✅ SEO Meta Tags
+//  SEO Meta Tags
 export const metadata = {
   title: "Enquiry Form | Connect with Trendikala Team",
   description:

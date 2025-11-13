@@ -165,6 +165,7 @@ export default function ContactUsPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600"
+                  alt="Facebook"
                 >
                   <SiFacebook className="h-7 w-7" />
                 </a>
@@ -173,6 +174,7 @@ export default function ContactUsPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-red-400"
+                  alt="Instagram"
                 >
                   <SiInstagram className="h-7 w-7" />
                 </a>
@@ -181,6 +183,7 @@ export default function ContactUsPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-red-600"
+                  alt="Youtube"
                 >
                   <SiYoutube className="h-7 w-7" />
                 </a>

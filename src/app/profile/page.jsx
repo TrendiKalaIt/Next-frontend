@@ -38,7 +38,7 @@ export default function UserProfile() {
     const [isSaving, setIsSaving] = useState(false);
     const dispatch = useDispatch();
 
-    // ✅ Fetch user profile on mount
+    //  Fetch user profile on mount
     useEffect(() => {
         const fetchUser = async () => {
             try {

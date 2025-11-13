@@ -32,10 +32,10 @@ const EnquiryForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // ✅ Indian 10-digit phone number validation
+        //  Indian 10-digit phone number validation
         const phoneRegex = /^[6-9]\d{9}$/;
 
-        // ✅ If phone field is filled or preferred contact is Phone
+        //  If phone field is filled or preferred contact is Phone
         if (formData.preferredContactMethod === "Phone" || formData.phone.trim() !== "") {
             if (!phoneRegex.test(formData.phone.trim())) {
                 toast.error("Please enter a valid 10-digit Indian phone number.");

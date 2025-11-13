@@ -1,6 +1,6 @@
 import ContactUsPage from "./ContactUsPage";
 
-// ✅ SEO Meta Tags
+//  SEO Meta Tags
 export const metadata = {
   title: "Contact Trendikala | Get in Touch with Us",
   description:

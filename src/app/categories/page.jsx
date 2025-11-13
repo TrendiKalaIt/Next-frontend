@@ -1,4 +1,4 @@
-// ✅ Server Component: only for SEO & wrapper
+//  Server Component: only for SEO & wrapper
 import CategoriesClient from "./CategoriesClient";
 
 export const metadata = {

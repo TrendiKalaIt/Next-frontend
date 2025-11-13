@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
-// ✅ AsyncThunk
+//  AsyncThunk
 export const createReview = createAsyncThunk(
   'review/createReview',
   async ({ productId, formData }, thunkAPI) => {

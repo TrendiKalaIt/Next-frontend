@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { SiRazorpay, SiFacebook, SiInstagram, SiYoutube, SiGooglepay, SiPaypal, SiAmazonpay } from 'react-icons/si';
 import { FaCcMastercard } from 'react-icons/fa6';
 import { FaCcVisa, FaCcApplePay } from 'react-icons/fa';
-import { useSelector } from "react-redux"; // ✅ Redux hook
-import { selectCurrentUser } from "@/store/authSlice"; // ✅ Redux selector
+import { useSelector } from "react-redux"; //  Redux hook
+import { selectCurrentUser } from "@/store/authSlice"; //  Redux selector
 
 const Footer = () => {
-  const user = useSelector(selectCurrentUser); // ✅ Get current user
+  const user = useSelector(selectCurrentUser); //  Get current user
 
   return (
     <>
@@ -60,9 +60,9 @@ const Footer = () => {
           <div>
             <h3 className="font-home font-bold text-lg mb-2">SOCIALS</h3>
             <div className="flex flex-wrap md:justify-start gap-4 text-2xl text-gray-700 mb-2">
-              <a href="https://www.facebook.com/share/14JLn8svZCB/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="text-blue-600 transition duration-300"><SiFacebook /></a>
-              <a href="https://www.instagram.com/trendikalaofficial?igsh=MXdidTA0YmY2Ymd3YQ%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" className="text-red-400 transition duration-300"><SiInstagram /></a>
-              <a href="https://www.youtube.com/@trendikala" target="_blank" rel="noreferrer" className="text-red-600 transition duration-300"><SiYoutube /></a>
+              <a href="https://www.facebook.com/share/14JLn8svZCB/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" alt="Facebook" className="text-blue-600 transition duration-300"><SiFacebook /></a>
+              <a href="https://www.instagram.com/trendikalaofficial?igsh=MXdidTA0YmY2Ymd3YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" alt="Instagram" className="text-red-400 transition duration-300"><SiInstagram /></a>
+              <a href="https://www.youtube.com/@trendikala" target="_blank" rel="noopener noreferrer" alt="Youtube" className="text-red-600 transition duration-300"><SiYoutube /></a>
             </div>
             <div>
               <h3 className="font-bold text-lg mb-4 font-home">TRENDI KALA ACCEPTS</h3>

@@ -1,11 +1,10 @@
-// ✅ This file must NOT have "use client"
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
 import RootProvider from "./RootProvider";
 import NewUpdatesMsg from "@/components/NewUpdatesMsg";
 import ClientToaster from "./ClientToaster";
+import OfferModal from "@/components/OfferModal";
 
 export const metadata = {
   title: "TrendiKala",
@@ -16,7 +15,6 @@ export const metadata = {
     apple: "/trendikala_logo_bg.webp",
   },
   other: {
-    // ✅ Custom meta tags (rendered in <head>)
     "google-site-verification": "aNV_TcSg2PToCYYUGiF0TuyvMbq-P9S9JFivu-kbDuU",
     author: "Trendikala",
   },
@@ -33,7 +31,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        
+
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-5PVN410KDV"
@@ -55,6 +53,7 @@ export default function RootLayout({ children }) {
           <ClientToaster />
           <NewUpdatesMsg />
           <Navbar links={navLinks} />
+          <OfferModal />
           <main>{children}</main>
           <Footer />
         </RootProvider>

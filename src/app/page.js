@@ -1,4 +1,4 @@
-// ✅ SEO Metadata for Home Page
+//  SEO Metadata for Home Page
 export const metadata = {
   title: "Trendikala | Stylish Kurtis and Dresses for Every Woman",
   description:
@@ -15,7 +15,6 @@ export const metadata = {
   
 };
 
-// ✅ Import your client component
 import HomeClient from "./HomeClient";
 
 export default function HomePage() {
