@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -6,6 +5,10 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { Mail, Phone, MapPin, Clock, Send, User, MessageSquare } from 'lucide-react';
 import { SiFacebook, SiInstagram, SiYoutube } from 'react-icons/si';
+
+// Google Maps Location
+const GOOGLE_MAPS_IFRAME_SRC =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2512.475565913287!2d77.43174877375253!3d28.630891584158345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cefdc1da8ebe3%3A0x360edd4ea09c2493!2sTrendi%20Kala!5e1!3m2!1sen!2sin!4v1763147587507!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade';
 
 export default function ContactUsPage() {
   const [formData, setFormData] = useState({
@@ -33,7 +36,7 @@ export default function ContactUsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 md:mt-10 px-4 lg:px-8 pb-2">
+    <div className="min-h-screen bg-gray-100 md:mt-10">
       <div className="max-w-4xl mx-auto">
         <h1 className="font-heading text-4xl font-extrabold text-[#9CAF88] text-center py-8">
           Get in Touch
@@ -45,8 +48,9 @@ export default function ContactUsPage() {
             <h2 className="font-home text-2xl font-bold text-[#9CAF88] mb-6">
               Send Us a Message
             </h2>
+
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="relative mt-1 rounded-md shadow-sm">
+              <div className="relative mt-1 rounded-md border">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                   <User className="h-5 w-5 text-gray-400" />
                 </div>
@@ -61,7 +65,7 @@ export default function ContactUsPage() {
                 />
               </div>
 
-              <div className="relative mt-1 rounded-md shadow-sm">
+              <div className="relative mt-1 rounded-md border">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                   <Mail className="h-5 w-5 text-gray-400" />
                 </div>
@@ -76,7 +80,7 @@ export default function ContactUsPage() {
                 />
               </div>
 
-              <div className="relative mt-1 rounded-md shadow-sm">
+              <div className="relative mt-1 rounded-md border">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 pt-2 self-start">
                   <MessageSquare className="h-5 w-5 text-gray-400" />
                 </div>
@@ -93,9 +97,9 @@ export default function ContactUsPage() {
 
               <button
                 type="submit"
-                className="font-home inline-flex justify-center items-center rounded-md border border-transparent bg-[#93A87E] hover:bg-[#93a87ec6] px-6 py-3 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                className="font-home inline-flex justify-center items-center rounded-md border border-transparent bg-[#93A87E] hover:bg-[#93a87ec6] px-6 py-2 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
               >
-                <Send className="mr-2 h-5 w-5" />
+                <Send className="mr-2 h-7 w-7" />
                 Send Message
               </button>
             </form>
@@ -106,6 +110,7 @@ export default function ContactUsPage() {
             <h2 className="font-home text-2xl font-bold text-[#9CAF88] mb-6">
               Contact Information
             </h2>
+
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
                 <Mail className="h-6 w-6 text-[#9CAF88]" />
@@ -165,25 +170,24 @@ export default function ContactUsPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600"
-                  alt="Facebook"
                 >
                   <SiFacebook className="h-7 w-7" />
                 </a>
+
                 <a
                   href="https://www.instagram.com/trendikalaofficial?igsh=MXdidTA0YmY2Ymd3YQ%3D%3D&utm_source=qr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-red-400"
-                  alt="Instagram"
                 >
                   <SiInstagram className="h-7 w-7" />
                 </a>
+
                 <a
                   href="https://www.youtube.com/@trendikala"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-red-600"
-                  alt="Youtube"
                 >
                   <SiYoutube className="h-7 w-7" />
                 </a>
@@ -191,6 +195,17 @@ export default function ContactUsPage() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Google Map */}
+      <div className="bg-white  overflow-hidden border mt-8">
+        <iframe
+          src={GOOGLE_MAPS_IFRAME_SRC}
+          width="100%"
+          height="600"
+          style={{ border: 0 }}
+          loading="lazy"
+        ></iframe>
       </div>
     </div>
   );

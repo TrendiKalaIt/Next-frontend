@@ -14,11 +14,11 @@ const authHeaders = () => ({
 const prepareItemsForBackend = (items) =>
   Array.isArray(items)
     ? items
-        .filter((item) => item && (item.product || item.productName))
-        .map((item) => ({ ...item, discountPrice: item.discountPrice ?? item.price }))
+      .filter((item) => item && (item.product || item.productName))
+      .map((item) => ({ ...item, discountPrice: item.discountPrice ?? item.price }))
     : [];
 
-export const fetchCart = createAsyncThunk('cart/fetchCart', async (_, thunkAPI) => {
+export const fetchCart = createAsyncThunk('cart/fetchCart', async () => {
   try {
     const response = await axios.get(API_URL, authHeaders());
     return prepareItemsForBackend(response.data.items);
@@ -86,13 +86,19 @@ const cartSlice = createSlice({
       .addCase(addToCart.fulfilled, (state, action) => { state.status = 'succeeded'; state.items = action.payload; })
       .addCase(addToCart.rejected, (state, action) => { state.status = 'failed'; state.error = action.payload; })
 
-      .addCase(updateQuantity.pending, (state) => { state.status = 'loading'; })
+      .addCase(updateQuantity.pending, () => { })
       .addCase(updateQuantity.fulfilled, (state, action) => { state.status = 'succeeded'; state.items = action.payload; })
       .addCase(updateQuantity.rejected, (state, action) => { state.status = 'failed'; state.error = action.payload; })
 
-      .addCase(removeFromCart.pending, (state) => { state.status = 'loading'; })
-      .addCase(removeFromCart.fulfilled, (state, action) => { state.status = 'succeeded'; state.items = action.payload; })
-      .addCase(removeFromCart.rejected, (state, action) => { state.status = 'failed'; state.error = action.payload; })
+      .addCase(removeFromCart.pending, (state) => { })
+      .addCase(removeFromCart.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.items = action.payload;
+      })
+      .addCase(removeFromCart.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload;
+      })
 
       .addCase(clearCart.pending, (state) => { state.status = 'loading'; })
       .addCase(clearCart.fulfilled, (state, action) => { state.status = 'succeeded'; state.items = action.payload; })

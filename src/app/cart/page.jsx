@@ -19,14 +19,19 @@ function CartPage() {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const { items: products, status, error } = useSelector(state => state.cart);
+  const products = useSelector(state => state.cart.items);
+  const cartStatus = useSelector(state => state.cart.status);
+  const cartError = useSelector(state => state.cart.error);
+
   const [shippingOption, setShippingOption] = useState('free');
 
   useEffect(() => {
-    if (status === 'idle') {
+    if (cartStatus === "idle") {
       dispatch(fetchCart());
     }
-  }, [dispatch, status]);
+  }, [dispatch, cartStatus]);
+
+
 
   const changeQuantity = async (id, diff) => {
     const product = products.find(p => p._id === id || p.id === id);
@@ -77,7 +82,7 @@ function CartPage() {
           name="shipping"
           value={value}
           checked={value === 'deliveryCharge'}
-          onChange={() => {}}
+          onChange={() => { }}
           className="form-radio accent-green-600 h-5 w-5"
         />
         <span className="ml-3 text-gray-700 text-lg">{label}</span>
@@ -86,12 +91,20 @@ function CartPage() {
     </label>
   );
 
-  if (status === 'loading') {
-    return <p className="text-center mt-8 text-gray-500 text-lg">Loading cart...</p>;
+  if (cartStatus === 'loading') {
+    return (
+      <p className="text-center mt-8 text-gray-500 text-lg">
+        Loading cart...
+      </p>
+    );
   }
 
-  if (status === 'failed') {
-    return <p className="text-center mt-8 text-red-500 text-lg">Error: {error}</p>;
+  if (cartStatus === 'failed') {
+    return (
+      <p className="text-center mt-8 text-red-500 text-lg">
+        Error: {cartError}
+      </p>
+    );
   }
 
   return (
