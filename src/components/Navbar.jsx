@@ -5,9 +5,11 @@ import { Heart, ShoppingCart, Search, User, Menu, X } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '@/store/authSlice';
-import { selectCartCount, clearLocalCart,fetchCart  } from '@/store/cartSlice';
+import { selectCartCount, clearLocalCart, fetchCart } from '@/store/cartSlice';
 import { selectWishlistCount, fetchWishlist } from '@/store/wishlistSlice';
 import { persistor } from '@/store/store';
+import { useTheme } from "next-themes";
+
 
 export default function Navbar({ links = [] }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,6 +24,8 @@ export default function Navbar({ links = [] }) {
   const [searchText, setSearchText] = useState('');
   const cartCount = useSelector(selectCartCount);
   const wishlistCount = useSelector(selectWishlistCount);
+  const { theme, setTheme } = useTheme();
+
 
   useEffect(() => {
     if (user) {
@@ -29,7 +33,7 @@ export default function Navbar({ links = [] }) {
       dispatch(fetchWishlist());
     }
   }, [dispatch, user]);
-  
+
 
   useEffect(() => {
     if (pathname === '/') {
@@ -50,6 +54,8 @@ export default function Navbar({ links = [] }) {
     window.addEventListener('mousedown', handleClick);
     return () => window.removeEventListener('mousedown', handleClick);
   }, [showUserDropdown]);
+
+
 
   const getNavLinkClass = (isActive) => {
     if (pathname === '/') {
@@ -107,7 +113,7 @@ export default function Navbar({ links = [] }) {
 
   return (
     <nav
-      className={`px-4 lg:fixed left-0 right-0 z-10 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md top-0' : 'bg-transparent lg:mt-0'
+      className={`px-4 lg:fixed left-0 right-0 z-10 transition-all duration-300 ${isScrolled ? 'bg-white dark:bg-black shadow-md top-0' : 'bg-transparent lg:mt-0'
         }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center py-2 ">
@@ -174,6 +180,40 @@ export default function Navbar({ links = [] }) {
                 )}
               </a>
             )}
+
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            >
+              {theme === "dark" ? (
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 3v1m0 16v1m8-9h1M4 12H3m15.364-7.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343L5.636 5.636"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M21.64 13.65A9 9 0 0110.35 2.36 1 1 0 009 3.3a7 7 0 009.7 9.7 1 1 0 001.64.65z" />
+                </svg>
+              )}
+            </button>
+
             {/* User/Login Button with Dropdown */}
             <div className="relative user-dropdown hidden md:block">
               {user ? (

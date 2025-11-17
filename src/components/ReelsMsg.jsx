@@ -3,9 +3,9 @@ import React from "react";
 
 const ReelsMsg = () => {
   return (
-    <div className="bg-gray-100 flex items-center justify-center font-sans text-gray-800 overflow-hidden">
+    <div className="bg-gray-100 dark:bg-black flex items-center justify-center font-sans text-gray-800 dark:text-gray-200 overflow-hidden">
       <div className="w-full">
-        <div className="relative text-[#8d9f79] p-2 flex items-center">
+        <div className="relative text-[#8d9f79] dark:text-[#c5d7a2] p-2 flex items-center">
           <div className="marquee-container">
             <div className="marquee-content md:text-base tracking-wide flex items-center gap-8">
               <span>

@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-[#bedaa4] text-gray-800 py-10 px-6">
+      <footer className="bg-[#bedaa4] dark:bg-[#121212] text-gray-800 dark:text-gray-300 py-10 px-6 transition-all duration-300">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 gap-8 text-start">
 
           {/* Customer Care */}
@@ -81,7 +81,7 @@ const Footer = () => {
         </div>
       </footer>
 
-      <p className="bg-[#bedaa4d4] text-center text-xs sm:text-sm text-[#0000006c] py-2 font-body">
+      <p className="bg-[#bedaa4d4] dark:bg-[#1a1a1a] text-center text-xs sm:text-sm text-[#0000006c] dark:text-gray-400 py-2 font-body transition-all duration-300">
         © {new Date().getFullYear()}
         <a href="https://www.trendikala.com" className="text-[#9CAF88] underline px-2">www.trendikala.com</a> All rights reserved.
       </p>

@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -5,6 +6,7 @@ import RootProvider from "./RootProvider";
 import NewUpdatesMsg from "@/components/NewUpdatesMsg";
 import ClientToaster from "./ClientToaster";
 import OfferModal from "@/components/OfferModal";
+import { ThemeProvider } from "next-themes";
 
 export const metadata = {
   title: "TrendiKala",
@@ -31,11 +33,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-5PVN410KDV"
         ></script>
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -48,15 +50,20 @@ export default function RootLayout({ children }) {
         />
       </head>
 
-      <body>
-        <RootProvider>
-          <ClientToaster />
-          <NewUpdatesMsg />
-          <Navbar links={navLinks} />
-          <OfferModal />
-          <main>{children}</main>
-          <Footer />
-        </RootProvider>
+      <body className="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
+
+        {/* Dark Mode Provider (Auto System Based) */}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
+          <RootProvider>
+            <ClientToaster />
+            <NewUpdatesMsg />
+            <Navbar links={navLinks} />
+            <OfferModal />
+            <main>{children}</main>
+            <Footer />
+          </RootProvider>
+        </ThemeProvider>
+
       </body>
     </html>
   );
