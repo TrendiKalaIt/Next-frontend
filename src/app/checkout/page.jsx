@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
@@ -99,11 +99,10 @@ const AddressSection = ({
                 addr && (
                   <li
                     key={addr._id}
-                    className={`p-3  border rounded-md cursor-pointer flex justify-between items-start ${
-                      selectedAddress && selectedAddress._id === addr._id
+                    className={`p-3  border rounded-md cursor-pointer flex justify-between items-start ${selectedAddress && selectedAddress._id === addr._id
                         ? "border-green-600 bg-green-50"
                         : "border-gray-300"
-                    }`}
+                      }`}
                     onClick={() => setSelectedAddress(addr)}
                   >
                     <div>
@@ -163,6 +162,8 @@ const CheckoutSection = ({
   handlePlaceOrder,
   selectedAddress,
   discountAmount,
+  appliedSlabName,
+  freeDeliveryApplied,
 }) => (
   <div>
     <h2 className=" font-heading text-2xl text-green-600 font-semibold mb-4">
@@ -201,17 +202,28 @@ const CheckoutSection = ({
           <span>- ₹{discountAmount.toFixed(2)}</span>
         </div>
       )}
+      {appliedSlabName && (
+        <div className="text-sm text-gray-600 font-body">
+          Applied: {appliedSlabName}
+        </div>
+      )}
       <div className="flex justify-between text-gray-700 pt-4">
         <span className="font-body">Subtotal</span>
         <span className="font-semibold font-body">
-          ₹{(subtotal - discountAmount).toFixed(2)}
+          ₹{subtotal.toFixed(2)}
         </span>
       </div>
       <div className="flex justify-between text-gray-700">
         <span className="font-body">Delivery Charge</span>
-        <span className="text-sm text-green-600 font-body">
-          ₹{shipping.toFixed(2)}
-        </span>
+        {freeDeliveryApplied ? (
+          <span className="text-sm text-green-600 font-body font-semibold">
+            Free Delivery
+          </span>
+        ) : (
+          <span className="text-sm text-green-600 font-body">
+            ₹{shipping.toFixed(2)}
+          </span>
+        )}
       </div>
       <div className="flex justify-between text-lg font-bold text-gray-900 border-t-2 border-gray-200 pt-4">
         <span className="font-home">Total:</span>
@@ -229,11 +241,10 @@ const CheckoutSection = ({
       ].map(({ id, label, icons }) => (
         <div
           key={id}
-          className={`flex items-center p-4 rounded-lg border cursor-pointer transition duration-200 ${
-            paymentMethod === id
+          className={`flex items-center p-4 rounded-lg border cursor-pointer transition duration-200 ${paymentMethod === id
               ? "border-green-500 bg-green-50"
               : "border-gray-300"
-          }`}
+            }`}
           onClick={() => setPaymentMethod(id)}
         >
           <input
@@ -264,11 +275,10 @@ const CheckoutSection = ({
     <button
       onClick={handlePlaceOrder}
       disabled={loadingSubmit || !selectedAddress}
-      className={` font-home mt-8 w-full bg-[#9caf88e0] text-white py-2 rounded-lg font-semibold text-lg shadow-md transition duration-300 ease-in-out ${
-        loadingSubmit || !selectedAddress
+      className={` font-home mt-8 w-full bg-[#9caf88e0] text-white py-2 rounded-lg font-semibold text-lg shadow-md transition duration-300 ease-in-out ${loadingSubmit || !selectedAddress
           ? "opacity-50 cursor-not-allowed"
           : "hover:bg-[#9CAF88]"
-      }`}
+        }`}
     >
       {loadingSubmit ? "Placing Order..." : "Place Order"}
     </button>
@@ -300,6 +310,7 @@ const CheckoutDetails = () => {
   const [couponCode, setCouponCode] = useState("");
   const [couponData, setCouponData] = useState(null);
   const [couponMessage, setCouponMessage] = useState("");
+  const [couponLoading, setCouponLoading] = useState(false);
 
   useEffect(() => {
     if (!token) {
@@ -310,30 +321,51 @@ const CheckoutDetails = () => {
     // eslint-disable-next-line
   }, [token]);
 
+  const cart = orderDetails ? [orderDetails] : cartFromCheckout;
+
+  const prevCartRef = useRef(null);
+
+  useEffect(() => {
+    const cartSignature = JSON.stringify(
+      cart.map((item) => ({
+        id: item.product || item.productId || item._id || item.id,
+        qty: item.quantity || 1,
+      }))
+    );
+    if (prevCartRef.current && prevCartRef.current !== cartSignature && couponData) {
+      setCouponData(null);
+      setCouponMessage("Cart changed. Please reapply your coupon.");
+      toast("Cart changed. Please reapply your coupon.");
+    }
+    prevCartRef.current = cartSignature;
+  }, [cart, couponData]);
+
   if (checkingAuth) {
     return null;
   }
-
-  const cart = orderDetails ? [orderDetails] : cartFromCheckout;
-
-  const subtotal = cart.reduce(
+  const baseSubtotal = cart.reduce(
     (sum, p) => sum + (p.quantity || 1) * p.discountPrice,
     0
   );
 
-  const discountAmount = (() => {
-    if (!couponData) return 0;
-    if (couponData.discount_type === "percentage") {
-      return (subtotal * couponData.discount_value) / 100;
-    } else if (couponData.discount_type === "flat") {
-      return couponData.discount_value;
-    }
-    return 0;
-  })();
-
   const DELIVERY_CHARGE = 100;
-  const shipping = DELIVERY_CHARGE;
-  const total = Math.max(0, subtotal - discountAmount) + shipping;
+  const hasValidCoupon = couponData && couponData.valid && couponData.newTotals;
+
+  const discountAmount = hasValidCoupon && typeof couponData.discountAmount === "number"
+    ? couponData.discountAmount
+    : 0;
+
+  const subtotal = hasValidCoupon && typeof couponData.newTotals.subtotal === "number"
+    ? couponData.newTotals.subtotal
+    : baseSubtotal;
+
+  const shipping = hasValidCoupon && typeof couponData.newTotals.shipping === "number"
+    ? couponData.newTotals.shipping
+    : DELIVERY_CHARGE;
+
+  const total = hasValidCoupon && typeof couponData.newTotals.grandTotal === "number"
+    ? couponData.newTotals.grandTotal
+    : Math.max(0, baseSubtotal - discountAmount) + shipping;
   const finalSelectedAddress = selectedAddress;
 
   const handlePlaceOrder = async () => {
@@ -473,27 +505,67 @@ const CheckoutDetails = () => {
       return;
     }
 
+    if (!token) {
+      setCouponMessage("You need to be logged in to apply a coupon.");
+      toast.error("Please log in to apply a coupon.");
+      return;
+    }
+
+    const cartItems = cart.map((item) => ({
+      product:
+        item.product?._id ||
+        item.productId ||
+        item._id ||
+        item.id,
+
+      productName: item.productName || item.name,
+      quantity: item.quantity || 1,
+      discountPrice: item.discountPrice ?? item.price,
+      image:
+        item.image ||
+        (item.thumbnail && item.thumbnail.trim() !== "" ? item.thumbnail : undefined) ||
+        (item.media && item.media.length > 0 ? item.media[0].url : undefined),
+      color: item.color,
+      size: item.size,
+    }));
+
+    const payload = {
+      coupon_code: couponCode.trim().toUpperCase(),
+      cartItems,
+      shippingCharge: DELIVERY_CHARGE,
+    };
+
+    setCouponLoading(true);
+    setCouponMessage("");
+
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/coupons/apply`,
-        { coupon_code: couponCode.trim().toUpperCase() },
+        payload,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
 
-      if (response.data.success) {
-        setCouponData(response.data.coupon);
-        setCouponMessage("Coupon applied successfully!");
+      const data = response.data;
+      if (data && data.valid) {
+        setCouponData(data);
+        setCouponMessage(data.message || "Coupon applied successfully!");
         toast.success("Coupon applied");
       } else {
-        setCouponMessage(response.data.message);
+        setCouponData(null);
+        const msg = data?.message || "Coupon is not applicable.";
+        setCouponMessage(msg);
+        toast.error(msg);
       }
     } catch (err) {
+      setCouponData(null);
       const msg =
         err.response?.data?.message || "Invalid coupon or server error.";
       setCouponMessage(msg);
       toast.error(msg);
+    } finally {
+      setCouponLoading(false);
     }
   };
 
@@ -521,14 +593,16 @@ const CheckoutDetails = () => {
                 onChange={(e) => setCouponCode(e.target.value)}
                 placeholder="Enter coupon code"
                 className="border border-gray-300 rounded px-4 py-2 w-full"
-                disabled={!!couponData}
+                disabled={!!couponData || couponLoading}
               />
               {!couponData && (
                 <button
                   onClick={handleApplyCoupon}
-                  className="bg-green-600 text-white px-4 py-2 rounded font-home hover:bg-green-700"
+                  disabled={couponLoading}
+                  className={`bg-green-600 text-white px-4 py-2 rounded font-home ${couponLoading ? "opacity-60 cursor-not-allowed" : "hover:bg-green-700"
+                    }`}
                 >
-                  Apply
+                  {couponLoading ? "Applying..." : "Apply"}
                 </button>
               )}
               {couponData && (
@@ -544,6 +618,14 @@ const CheckoutDetails = () => {
                 </button>
               )}
             </div>
+            {couponMessage && (
+              <p
+                className={`mt-2 text-sm font-body ${couponData ? "text-green-600" : "text-red-600"
+                  }`}
+              >
+                {couponMessage}
+              </p>
+            )}
           </div>
           <CheckoutSection
             cart={cart}
@@ -556,6 +638,8 @@ const CheckoutDetails = () => {
             handlePlaceOrder={handlePlaceOrder}
             selectedAddress={finalSelectedAddress}
             discountAmount={discountAmount}
+            appliedSlabName={couponData?.appliedSlab?.name}
+            freeDeliveryApplied={couponData?.freeDeliveryApplied}
           />
         </div>
       </div>
