@@ -5,20 +5,28 @@ import Link from 'next/link';
 
 const NewArrivals = () => {
   const newArrivalsItems = [
+
     {
-      imageUrl: '/trendi-kala-discount-banner.jpg',
+      imageUrl: '/friday-website-poster.png',
       discount: '',
       description: '',
       bgColor: '#E8E0D7',
       objectFit: 'contain',
-    },
-    {
-      imageUrl: '/trendi-kala-discount-banner-2.jpg',
-      discount: '',
-      description: '',
-      bgColor: '#E8E0D7',
-      objectFit: 'contain',
-    },
+    }
+    // {
+    //   imageUrl: '/trendi-kala-discount-banner.jpg',
+    //   discount: '',
+    //   description: '',
+    //   bgColor: '#E8E0D7',
+    //   objectFit: 'contain',
+    // },
+    // {
+    //   imageUrl: '/trendi-kala-discount-banner-2.jpg',
+    //   discount: '',
+    //   description: '',
+    //   bgColor: '#E8E0D7',
+    //   objectFit: 'contain',
+    // },
   ];
 
   const [idx, setIdx] = useState(0);
