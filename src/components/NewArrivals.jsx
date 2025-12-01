@@ -12,14 +12,14 @@ const NewArrivals = () => {
       description: '',
       bgColor: '#E8E0D7',
       objectFit: 'contain',
+    },
+    {
+      imageUrl: '/afsana-20-percentage-off.png',
+      discount: '',
+      description: '',
+      bgColor: '#E8E0D7',
+      objectFit: 'contain',
     }
-    // {
-    //   imageUrl: '/trendi-kala-discount-banner.jpg',
-    //   discount: '',
-    //   description: '',
-    //   bgColor: '#E8E0D7',
-    //   objectFit: 'contain',
-    // },
     // {
     //   imageUrl: '/trendi-kala-discount-banner-2.jpg',
     //   discount: '',
