@@ -19,14 +19,14 @@ const NewArrivals = () => {
       description: '',
       bgColor: '#E8E0D7',
       objectFit: 'contain',
+    },
+    {
+      imageUrl: '/madhubala-20-percent-off.png',
+      discount: '',
+      description: '',
+      bgColor: '#E8E0D7',
+      objectFit: 'contain',
     }
-    // {
-    //   imageUrl: '/trendi-kala-discount-banner-2.jpg',
-    //   discount: '',
-    //   description: '',
-    //   bgColor: '#E8E0D7',
-    //   objectFit: 'contain',
-    // },
   ];
 
   const [idx, setIdx] = useState(0);

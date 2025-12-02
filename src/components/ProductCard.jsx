@@ -10,7 +10,7 @@ import { addToWishlist, removeFromWishlist } from "../store/wishlistSlice";
 import { setOrderDetails } from "../store/checkoutSlice";
 import { Dialog } from "@headlessui/react";
 
-const ProductCard = ({ product =  {}}) => {
+const ProductCard = ({ product = {} }) => {
   const {
     media = [],
     category = "Category",
@@ -197,13 +197,22 @@ const ProductCard = ({ product =  {}}) => {
           className="relative w-full h-28 sm:h-32 md:h-36 overflow-hidden rounded-t-2xl cursor-pointer"
           onClick={handleNavigate}
         >
+          {/* Coupon Badge */}
+          {product?.coupon && !isOutOfStock && (
+            <div className="absolute top-1 left-2 bg-green-600 text-white text-[24px] md:text-xs font-bold px-2 py-0.5 rounded-xl shadow-md z-3">
+              {product.coupon.discount_type === "percentage"
+                ? `${product.coupon.discount_value}% OFF`
+                : `₹${product.coupon.discount_value} OFF`}
+            </div>
+          )}
+
           <img
             src={
               media?.[0]?.url ||
               "https://placehold.co/150x150/FFD368/333?text=Product"
             }
             alt={productName}
-            className="w-full h-full object-contain object-top transition-transform duration-300 ease-in-out hover:scale-110"
+            className="w-full h-full object-contain object-top transition-transform duration-300 ease-in-out hover:scale-110 "
             loading="lazy"
           />
           {user && (
