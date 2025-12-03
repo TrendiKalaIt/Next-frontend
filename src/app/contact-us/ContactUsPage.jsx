@@ -168,7 +168,7 @@ export default function ContactUsPage() {
                 <a
                   href="https://www.facebook.com/share/14JLn8svZCB/?mibextid=wwXIfr"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="text-blue-600"
                 >
                   <SiFacebook className="h-7 w-7" />
@@ -177,7 +177,7 @@ export default function ContactUsPage() {
                 <a
                   href="https://www.instagram.com/trendikalaofficial?igsh=MXdidTA0YmY2Ymd3YQ%3D%3D&utm_source=qr"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="text-red-400"
                 >
                   <SiInstagram className="h-7 w-7" />
@@ -186,7 +186,7 @@ export default function ContactUsPage() {
                 <a
                   href="https://www.youtube.com/@trendikala"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="text-red-600"
                 >
                   <SiYoutube className="h-7 w-7" />
