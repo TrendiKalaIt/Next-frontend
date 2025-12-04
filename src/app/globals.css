@@ -5,3 +5,25 @@
 /* Your custom CSS styles or additional imports go below these lines.
    The error is likely happening around the start of the '@tailwind' rules. 
 */
+
+
+@keyframes shimmer-swipe {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.76) 50%, 
+    transparent 100%
+  );
+  background-size: 200% auto; 
+  animation: shimmer-swipe 3s linear infinite; 
+  background-color: rgb(35, 34, 34);
+}

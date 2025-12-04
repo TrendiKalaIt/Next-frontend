@@ -199,7 +199,9 @@ const ProductCard = ({ product = {} }) => {
         >
           {/* Coupon Badge */}
           {product?.coupon && !isOutOfStock && (
-            <div className="absolute top-1 left-2 bg-green-600 text-white text-[24px] md:text-xs font-bold px-2 py-0.5 rounded-xl shadow-md z-3">
+            <div
+              className="absolute top-0 right-0 bg-[#E91E63] text-white text-[12px] md:text-[20px] font-bold px-2 py-1 shadow-md z-40 overflow-hidden animate-shimmer "
+            >
               {product.coupon.discount_type === "percentage"
                 ? `${product.coupon.discount_value}% OFF`
                 : `₹${product.coupon.discount_value} OFF`}
