@@ -484,7 +484,7 @@ const ProductCard = ({ product = {} }) => {
         {/* Product Info  */}
         <div className="p-4 flex flex-col flex-grow">
           {/* Tags  */}
-          <div className="flex flex-wrap gap-2 mb-2">
+          <div className="flex flex-wrap gap-2 mb-2 font-body">
             {category?.name && (
               <span className="px-2 py-1 border border-gray-200 text-[10px] uppercase tracking-wide text-gray-600">
                 {category.name}
@@ -492,10 +492,10 @@ const ProductCard = ({ product = {} }) => {
             )}
           </div>
 
-          <h3 className="text-base font-medium text-gray-900 mb-1 line-clamp-2">{productName}</h3>
+          <h3 className="text-base font-body font-bold text-gray-900 mb-1 line-clamp-2">{productName}</h3>
 
           {/* Price Row */}
-          <div className="flex items-center gap-2 mb-4">
+          <div className="flex items-center gap-2 mb-4 font-heading">
             <span className="text-lg font-bold text-gray-900">₹{productDiscountPrice.toLocaleString('en-IN')}</span>
             {productDiscountPrice !== productPrice && (
               <>
@@ -508,12 +508,12 @@ const ProductCard = ({ product = {} }) => {
           </div>
 
           {/* Add to Bag/Buy Buttons */}
-          <div className="flex gap-2 pt-2 mt-auto">
+          <div className="flex gap-2 pt-2 mt-auto font-body">
             <button
               onClick={handleAddToCartClick}
               disabled={isOutOfStock}
-              className={`flex-1 py-2 border border-gray-900 text-sm font-bold uppercase tracking-wider transition-colors duration-300 
-                          ${isOutOfStock ? 'bg-gray-300 text-gray-500 border-gray-300 cursor-not-allowed' : 'hover:bg-gray-900 hover:text-white'}`}
+              className={`flex-1 py-2 border  border-gray-900 text-sm font-bold uppercase tracking-wider transition-colors duration-300 
+                          ${isOutOfStock ? 'bg-gray-300 text-gray-500 border-gray-300 cursor-not-allowed' : 'hover:bg-[#9CAF88] hover:border-[#9CAF88] hover:text-white'}`}
             >
               {isOutOfStock ? "Out of Stock" : "Add"}
             </button>
@@ -521,7 +521,7 @@ const ProductCard = ({ product = {} }) => {
               onClick={handleBuyNowClick}
               disabled={isOutOfStock}
               className={`flex-1 py-2 bg-[#9CAF88] text-white text-sm font-bold uppercase tracking-wider transition-colors duration-300 
-                          ${isOutOfStock ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'hover:bg-[#717d65]'}`}
+                          ${isOutOfStock ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'hover:bg-white hover:text-gray-900 hover:border hover:border-gray-900'}`}
             >
               Buy
             </button>

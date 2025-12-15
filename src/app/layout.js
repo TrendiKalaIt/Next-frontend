@@ -4,8 +4,8 @@ import "./globals.css";
 import RootProvider from "./RootProvider";
 import NewUpdatesMsg from "@/components/NewUpdatesMsg";
 import ClientToaster from "./ClientToaster";
-import OfferModal from "@/components/OfferModal";
-
+// import OfferModal from "@/components/OfferModal";
+import OfferPopup from "@/components/OfferPopup";
 export const metadata = {
   title: "TrendiKala",
   description: "Best online store for fashion products",
@@ -53,8 +53,9 @@ export default function RootLayout({ children }) {
           <ClientToaster />
           <NewUpdatesMsg />
           <Navbar links={navLinks} />
-          <OfferModal />
+          {/* <OfferModal /> */}
           <main>{children}</main>
+          <OfferPopup/>
           <Footer />
         </RootProvider>
       </body>

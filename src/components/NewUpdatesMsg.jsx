@@ -6,23 +6,23 @@ const NewUpdatesMsg = () => {
   return (
     <div className="bg-gray-100 flex items-center justify-center font-sans text-gray-800 overflow-hidden">
       <div className="w-full">
-        <div className="relative text-[#8d9f79] p-2 flex items-center blinking-background">
+        <div className="relative text-black p-2 flex items-center blinking-background">
           <div className="updates-marquee-container">
-            <div className="updates-marquee-content md:text-base tracking-wide flex items-center gap-8">
-              <span className="flex items-center gap-2">
-                <Gift className="w-5 h-5 text-[#fcd34d]" />
+            <div className="updates-marquee-content md:text-base tracking-wide flex items-center gap-8 font-heading ">
+              <span className="flex items-center uppercase font-bold gap-2 text-[20px]">
+                <Gift className="w-6 h-6  text-[#fcd34d]" />
                 “Exclusive Offer: Complimentary gifts with the first 100 orders.”
               </span>
-              <span className="flex items-center gap-2">
-                <Gift className="w-5 h-5 text-[#fcd34d]" />
+              <span className="flex items-center uppercase font-bold gap-2 text-[20px]">
+                <Gift className="w-6 h-6  text-[#fcd34d]" />
                 “Exclusive Offer: Complimentary gifts with the first 100 orders.”
               </span>
-              <span className="flex items-center gap-2">
-                <Gift className="w-5 h-5 text-[#fcd34d]" />
+              <span className="flex items-center uppercase font-bold gap-2 text-[20px]">
+                <Gift className="w-6 h-6  text-[#fcd34d]" />
                 “Exclusive Offer: Complimentary gifts with the first 100 orders.”
               </span>
-              <span className="flex items-center gap-2">
-                <Gift className="w-5 h-5 text-[#fcd34d]" />
+              <span className="flex items-center uppercase font-bold gap-2 text-[20px]">
+                <Gift className="w-6 h-6  text-[#fcd34d]" />
                 “Exclusive Offer: Complimentary gifts with the first 100 orders.”
               </span>
             </div>

@@ -82,9 +82,11 @@ export default function HomeClient() {
       {showPoster ? <PosterComponent /> : showOutfit && <Spinner />}
       {showFeatured ? (
         <div className="px-4 py-2 mb-3">
-          <h2 className="font-home text-lg font-bold text-[#9CAF88] uppercase mb-6">
-            Featured Products
-          </h2>
+        
+          <div className="py-8">
+            <h2 className="text-5xl font-semibold font-heading mb-3 text-[#9CAF88] "> Featured Products</h2>
+            <p className="text-gray-400 text-lg mb-2">Our most loved designs, chosen just for you.</p>
+          </div>
           {error && <p className="text-red-600">{error}</p>}
           {!error && (
             <>

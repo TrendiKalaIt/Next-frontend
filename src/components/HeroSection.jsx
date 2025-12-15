@@ -290,8 +290,8 @@ const HeroCarousel = () => {
             {/* Price Tag (Floating) */}
             <div className={`absolute bottom-8 right-8 lg:bottom-12 lg:right-12 z-20 bg-[#9caf885b] backdrop-blur-md border border-white/20 px-6 py-3 rounded-none animate-bounce hidden sm:block ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}>
               <Link href={slides[currentIndex].link}>
-                <p className="text-xs uppercase tracking-widest mb-1 text-white">Price</p>
-                <p className="text-xl font-bold font-serif text-white">{slide.price}</p>
+                <p className="text-xs uppercase tracking-widest mb-1 font-body text-white">Price</p>
+                <p className="text-xl font-bold font-heading text-white">{slide.price}</p>
               </Link>
             </div>
 
@@ -309,32 +309,32 @@ const HeroCarousel = () => {
             {/* Badge */}
             <div className="animate-content delay-100 mb-6 flex items-center gap-3">
               <span className={`h-px w-12 bg-gradient-to-r ${slides[currentIndex].accentColor}`}></span>
-              <span className={`text-sm font-bold tracking-[0.2em] uppercase text-transparent bg-clip-text bg-gradient-to-r ${slides[currentIndex].accentColor}`}>
+              <span className={`text-sm font-semibold tracking-[0.2em] uppercase text-transparent font-body bg-clip-text bg-gradient-to-r ${slides[currentIndex].accentColor}`}>
                 {slides[currentIndex].subtitle}
               </span>
             </div>
 
             {/* Title */}
-            <h1 className="animate-content delay-200 text-4xl sm:text-5xl lg:text-5xl font-serif font-light leading-tight mb-6 text-white">
+            <h1 className="animate-content delay-200 text-4xl sm:text-5xl lg:text-5xl font-heading leading-tight mb-6 text-white">
               {slides[currentIndex].title}
             </h1>
 
             {/* Description */}
-            <p className="animate-content delay-300 text-[#9CAF88] text-lg leading-relaxed mb-8 max-w-md lg:max-w-sm">
+            <p className="animate-content delay-300 text-[#9CAF88] text-lg leading-relaxed font-body mb-8 max-w-md lg:max-w-sm">
               {slides[currentIndex].description}
             </p>
 
             {/* Buttons */}
             <div className="animate-content delay-300 flex gap-4 w-full  ">
               <Link href="/categories">
-                <button className="flex-1 sm:flex-none bg-[#9CAF88] text-white px-8 py-3 font-medium hover:bg-[#9CAF88]0 transition-colors flex items-center justify-center gap-2">
+                <button className="flex-1 sm:flex-none bg-[#9CAF88] text-white px-8 py-3 font-medium font-body hover:bg-[#9CAF88]0 transition-colors flex items-center justify-center gap-2">
                   <ShoppingBag className="w-4 h-4" />
                   {slides[currentIndex].buttonText}
                 </button>
               </Link>
 
               <Link href="/categories">
-                <button className="hidden sm:flex px-8 py-3 border border-white/20 hover:bg-white/5 transition-colors items-center justify-center gap-2">
+                <button className="hidden sm:flex px-8 py-3 border border-white/20 hover:bg-white/5 transition-colors font-body items-center justify-center gap-2">
                   Collections
                   <ArrowRight className="w-4 h-4" />
                 </button>
