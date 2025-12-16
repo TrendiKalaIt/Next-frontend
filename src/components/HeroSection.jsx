@@ -120,7 +120,7 @@ const HeroCarousel = () => {
   const [slides, setSlides] = useState([
     {
       id: 1,
-      image: "fabrics-rolled-stacked.webp",
+      image: "sewing-thread.jpg",
       subtitle: "PREMIUM FABRICS",
       title: "Summer Fabric Collection",
       description:
@@ -132,7 +132,7 @@ const HeroCarousel = () => {
     },
     {
       id: 2,
-      image: "sewing-machine-used-patterned-material.webp",
+      image: "tailor-sewing-machine.jpg",
       subtitle: "DESIGNER CRAFT",
       title: "Custom Tailored Creations",
       description:
@@ -144,7 +144,7 @@ const HeroCarousel = () => {
     },
     {
       id: 3,
-      image: "young-woman-with-shopping-bags-beautiful-dress.webp",
+      image: "fiber-structure.avif",
       subtitle: "FASHION TREND",
       title: "Modern Ready-to-Wear",
       description:
@@ -320,7 +320,7 @@ const HeroCarousel = () => {
             </h1>
 
             {/* Description */}
-            <p className="animate-content delay-300 text-[#9CAF88] text-lg leading-relaxed font-body mb-8 max-w-md lg:max-w-sm">
+            <p className="animate-content delay-300 text-gray-300 text-lg leading-relaxed font-body mb-8 max-w-md lg:max-w-sm">
               {slides[currentIndex].description}
             </p>
 

@@ -172,10 +172,23 @@ const NewArrivals = () => {
 
   // MAIN BANNER
   const bannerImages = [
-    { url: "young-woman-with-shopping-bags-beautiful-dress.webp", link: "/long-kurti/gulnaaz" },
-    { url: "sewing-machine-used-patterned-material.webp", link: "/dress/aura" },
-    { url: "fabrics-rolled-stacked.webp", link: "/anarkali/afsana" },
+    {
+      desktop: "exclusive-offer-first-100-orders.png",
+      mobile: "exclusive-offer-first-100-orders-mobile.png",
+      link: "/long-kurti/gulnaaz",
+    },
+    {
+      desktop: "sewing-machine-used-patterned-material.webp",
+      mobile: "sewing-machine-used-patterned-material.webp",
+      link: "/dress/aura",
+    },
+    {
+      desktop: "fabrics-rolled-stacked.webp",
+      mobile: "fabrics-rolled-stacked.webp",
+      link: "/anarkali/afsana",
+    },
   ];
+
 
   const [currentMainSlide, setCurrentMainSlide] = useState(0);
 
@@ -220,7 +233,7 @@ const NewArrivals = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-10 flex flex-col  font-sans">
       {/* HEADER */}
-    
+
       <div className="py-6">
         <h2 className="text-5xl font-semibold font-heading mb-2 text-[#9CAF88]"> Featured Collections & Offers</h2>
         <p className="text-gray-400 text-lg">A dynamic space for your latest promotions and exclusive banners.</p>
@@ -235,7 +248,10 @@ const NewArrivals = () => {
               key={index}
               className="absolute inset-0 transition-transform duration-700 ease-in-out"
               style={{
-                backgroundImage: `url('${slide.url}')`,
+                backgroundImage: `url('${typeof window !== "undefined" && window.innerWidth < 768
+                    ? slide.mobile
+                    : slide.desktop
+                  }')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 transform: `translateX(${(index - currentMainSlide) * 100}%)`,
@@ -243,7 +259,7 @@ const NewArrivals = () => {
             ></div>
           ))}
 
-          <div className="absolute inset-0 bg-black/30 flex flex-col justify-end p-8">
+          <div className="absolute inset-0 bg-black/0 flex flex-col justify-end p-8">
             <Link href={bannerImages[currentMainSlide].link}>
               <button className="mt-4 flex items-center text-white">
                 Shop Now <ArrowRight className="ml-2 w-5 h-5" />
