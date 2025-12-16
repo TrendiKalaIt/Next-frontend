@@ -5,7 +5,7 @@ import { Heart, ShoppingCart, Search, User, Menu, X } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '@/store/authSlice';
-import { selectCartCount, clearLocalCart,fetchCart  } from '@/store/cartSlice';
+import { selectCartCount, clearLocalCart, fetchCart } from '@/store/cartSlice';
 import { selectWishlistCount, fetchWishlist } from '@/store/wishlistSlice';
 import { persistor } from '@/store/store';
 
@@ -22,6 +22,9 @@ export default function Navbar({ links = [] }) {
   const [searchText, setSearchText] = useState('');
   const cartCount = useSelector(selectCartCount);
   const wishlistCount = useSelector(selectWishlistCount);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const lastScrollY = useRef(0);
+
 
   useEffect(() => {
     if (user) {
@@ -29,18 +32,33 @@ export default function Navbar({ links = [] }) {
       dispatch(fetchWishlist());
     }
   }, [dispatch, user]);
-  
+
 
   useEffect(() => {
-    if (pathname === '/') {
-      const handleScroll = () => setIsScrolled(window.scrollY > 400);
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    } else {
-      // Other pages: navbar always fixed
-      setIsScrolled(true);
-    }
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      // 🔹 Feature 1 → ALL PAGES
+      if (currentScroll > lastScrollY.current && currentScroll > 120) {
+        setShowNavbar(false); // scroll down
+      } else {
+        setShowNavbar(true); // scroll up
+      }
+
+      // 🔹 Feature 2 → ONLY HOME
+      if (pathname === '/') {
+        setIsScrolled(currentScroll > 40);
+      } else {
+        setIsScrolled(true);
+      }
+
+      lastScrollY.current = currentScroll;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname]);
+
 
   useEffect(() => {
     if (!showUserDropdown) return;
@@ -107,9 +125,18 @@ export default function Navbar({ links = [] }) {
 
   return (
     <nav
-      className={`px-4 lg:fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md top-0' : 'bg-transparent lg:mt-0 '
-        }`}
+      className={`
+    px-4 lg:fixed left-0 right-0 z-50
+    transition-all duration-300 ease-in-out
+    ${showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}
+    ${pathname === '/'
+          ? (isScrolled ? 'bg-white shadow-md' : 'bg-transparent')
+          : 'bg-white shadow-md'
+        }
+    ${pathname === '/' && !isScrolled ? 'top-[40px]' : 'top-0'}
+  `}
     >
+
       <div className="max-w-7xl mx-auto flex justify-between items-center py-2 ">
         {/* Logo */}
         <div

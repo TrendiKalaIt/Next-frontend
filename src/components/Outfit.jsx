@@ -1,34 +1,30 @@
-// components/Outfit.jsx
+// Updated Reels Section with Carousel + Follow Button
+
 import React, { useState, useEffect, useRef, memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import ReelsMsg from "./ReelsMsg";
 
-const Outfit = () => {
+const ReelsSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedReel, setSelectedReel] = useState(null);
   const [showReels, setShowReels] = useState(false);
   const reelsRef = useRef(null);
 
-  const sideImages = [
-    { id: 1, url: "/cro1.webp" },
-    { id: 2, url: "/cro2.webp" },
-    { id: 3, url: "/cro3.webp" },
+  const reels = [
+    { id: 7, url: "/dress7.mp4", thumbnail: "/dress7.webp", views: "2.4k" },
+    { id: 8, url: "/dress8.mp4", thumbnail: "/dress8.webp", views: "6.1k" },
+    { id: 9, url: "/dress9.mp4", thumbnail: "/dress9.webp", views: "3.9k" },
+    { id: 10, url: "/dress10.mp4", thumbnail: "/dress10.webp", views: "3.2k" },
+    { id: 1, url: "/dress1.mp4", thumbnail: "/dress1.webp", views: "1.7k" },
+    { id: 3, url: "/dress3.mp4", thumbnail: "/dress3.webp", views: "2.8k" },
+    { id: 4, url: "/dress4.mp4", thumbnail: "/dress4.webp", views: "2.4k" },
+    { id: 5, url: "/dress5.mp4", thumbnail: "/dress5.webp", views: "1.3k" },
+    { id: 2, url: "/dress2.mp4", thumbnail: "/dress2.webp", views: "3.1k" },
+    { id: 6, url: "/dress6.mp4", thumbnail: "/dress6.webp", views: "2.5k" },
   ];
 
-  const reels = [
-    { id: 7, url: "/dress7.mp4" },
-    { id: 8, url: "/dress8.mp4" },
-    { id: 9, url: "/dress9.mp4" },
-    { id: 10, url: "/dress10.mp4" },
-    { id: 1, url: "/dress1.mp4" },
-    { id: 3, url: "/dress3.mp4" },
-    { id: 4, url: "/dress4.mp4" },
-    { id: 5, url: "/dress5.mp4" },
-    { id: 2, url: "/dress2.mp4" },
-    { id: 6, url: "/dress6.mp4" },
-  ];
+  const instagramUrl = "https://www.instagram.com/trendikalaofficial?igsh=MXdidTA0YmY2Ymd3YQ%3D%3D&utm_source=qr";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,57 +55,38 @@ const Outfit = () => {
   };
 
   return (
-    <div className="w-full mx-auto p-4">
-      {/* Top Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 justify-between lg:gap-4 mb-6 gap-y-2">
-        {/* Main Poster */}
-        <div className="col-span-2 h-[250px] md:h-[350px] rounded-2xl overflow-hidden relative bg-[#cff1b9]">
-          <picture className="w-full h-full">
-            {/* Desktop version */}
-            <source media="(min-width:768px)" srcSet="/desktop-offer-banner.webp" />
-            {/* Mobile version (fallback) */}
-            <img
-              src="/mobile-offer-banner.webp"
-              alt="mobile Offer banner for first 100 orders"
-              className="w-full h-full object-contain"
-              loading="lazy"
-            />
-          </picture>
+    <section className="py-10 bg-black/10s text-[#9CAF88] overflow-hidden" ref={reelsRef}>
+      <div className="container mx-auto px-6">
+        {/* Header */}
+        <div className="md:flex justify-between  items-end mb-10">
+          <div >
+            <h2 className="text-5xl font-semibold font-heading mb-3">Trending Reels</h2>
+            <p className="text-gray-400 text-lg">See latest outfit inspirations</p>
+          </div>
+
+        <a
+  href={instagramUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Instagram"
+  className="inline-flex mt-5 md:mt-0 items-center justify-center whitespace-nowrap px-4 py-3 uppercase text-sm tracking-widest transition-all duration-300 ease-in-out transform text-white rounded-lg shadow-xl hover:ring-4 hover:ring-[#E1306C] hover:ring-opacity-50"
+  style={{
+    background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)'
+  }}
+>
+  {/* Instagram Icon */}
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 h-4 w-4">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 0 1 12 16h0a4 4 0 0 1-4-4h0a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+  <span className="font-bold">Follow Us</span>
+</a>
+
+
         </div>
 
-        {/* Side Carousel */}
-        <div className="h-[350px] w-full flex justify-center">
-          <Swiper
-            direction="horizontal"
-            modules={[Autoplay, Navigation]}
-            autoplay={{ delay: 2000 }}
-            loop
-            navigation={false}
-            className="h-full rounded-2xl w-[300px]"
-          >
-            {sideImages.map((img) => (
-              <SwiperSlide key={img.id}>
-                <img
-                  src={img.url}
-                  alt={`new outfit image ${img.id}`}
-                  className="w-full lg:w-[300px] h-full object-top bg-blue-50 rounded-2xl object-cover"
-                  loading="lazy"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
-
-      {/* --- Reels Section --- */}
-      <div className="mt-6" ref={reelsRef}>
-        <h3 className="font-home text-[#9CAF88] uppercase text-lg font-semibold mb-2">
-          Reels for you
-        </h3>
-        <div className="mb-2">
-          <ReelsMsg />
-        </div>
-
+        {/* Carousel */}
         {showReels ? (
           <Swiper
             slidesPerView="auto"
@@ -117,12 +94,12 @@ const Outfit = () => {
             modules={[Autoplay]}
             autoplay={{ delay: 2500 }}
             loop
-            className="pb-2"
+            className="pb-6"
           >
             {reels.map((reel) => (
               <SwiperSlide
                 key={reel.id}
-                className="!w-[328px] md:!w-[180px] h-[240px] rounded-2xl overflow-hidden shadow relative cursor-pointer"
+                className="!w-[290px] md:!w-[180px] h-[240px] overflow-hidden relative cursor-pointer bg-gray-900"
                 onClick={() => openModal(reel)}
               >
                 <video
@@ -132,46 +109,48 @@ const Outfit = () => {
                   muted
                   loop
                   playsInline
-                  preload="metadata"
                 />
+
+                {/* Gradient + text */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-4">
+                  <span className="text-xs bg-white/50 w-fit px-2 py-0.5 rounded mb-1 text-gray-700">▶ REEL</span>
+                  <p className="text-xs text-gray-300">{reel.views} views</p>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
         ) : (
-          <div className="flex gap-4 overflow-hidden pb-2">
+          <div className="flex gap-4 overflow-hidden pb-6">
             {Array.from({ length: 5 }).map((_, i) => (
-              <div
-                key={i}
-                className="!w-[328px] md:!w-[180px] h-[240px] rounded-2xl bg-gray-300 animate-pulse"
-              />
+              <div key={i} className="w-[320px] md:w-[180px] h-[260px] rounded-2xl bg-gray-800 animate-pulse" />
             ))}
           </div>
         )}
       </div>
 
-      {/* --- Modal --- */}
+      {/* Modal */}
       {isModalOpen && selectedReel && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-          <div className="relative w-full h-full aspect-video overflow-hidden">
+        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="relative w-full max-w-md h-[70vh]  overflow-hidden">
             <video
               src={selectedReel.url}
-              className="w-full h-full md:object-contain bg-black"
+              className="w-full h-full object-contain bg-black"
               autoPlay
               controls
               loop
-              playsInline
             />
+
             <button
               onClick={closeModal}
-              className="absolute top-3 right-4 bg-white bg-opacity-35 rounded px-3 md:py-1 text-white font-bold"
+              className="absolute top-3 right-3 bg-white/40 text-white px-3 py-1 rounded-full backdrop-blur"
             >
               ✕
             </button>
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 
-export default memo(Outfit);
+export default memo(ReelsSection);

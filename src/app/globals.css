@@ -11,19 +11,81 @@
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
 }
 
 .animate-shimmer {
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(255, 255, 255, 0.76) 50%, 
-    transparent 100%
-  );
-  background-size: 200% auto; 
-  animation: shimmer-swipe 3s linear infinite; 
+  background: linear-gradient(to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.76) 50%,
+      transparent 100%);
+  background-size: 200% auto;
+  animation: shimmer-swipe 3s linear infinite;
   background-color: rgb(35, 34, 34);
+}
+
+
+
+/* 🔥 OFFER POPUP ANIMATION */
+@keyframes offerRealisticBounce {
+
+  /* Drop from top-left */
+  0% {
+    transform: translate(40px, -160px) scale(0.6);
+    opacity: 0;
+  }
+
+  /* First big hit */
+  18% {
+    transform: translate(80px, calc(100vh - 170px)) scale(1);
+    opacity: 1;
+  }
+
+  /* Bounce 1 */
+  26% {
+    transform: translate(120px, calc(100vh - 260px)) scale(0.95);
+  }
+
+  /* Hit 2 */
+  34% {
+    transform: translate(140px, calc(100vh - 170px)) scale(1);
+  }
+
+  /* Bounce 2 */
+  42% {
+    transform: translate(180px, calc(100vh - 230px)) scale(0.97);
+  }
+
+  /* Hit 3 */
+  50% {
+    transform: translate(200px, calc(100vh - 170px)) scale(1);
+  }
+
+  /* Bounce 3 */
+  58% {
+    transform: translate(220px, calc(100vh - 210px)) scale(0.98);
+  }
+
+  /* Hit 4 */
+  66% {
+    transform: translate(250px, calc(100vh - 170px)) scale(1);
+  }
+
+  /* Final small bounce */
+  74% {
+    transform: translate(300px, calc(100vh - 195px)) scale(0.99);
+  }
+
+  /* Slide + settle */
+  100% {
+    transform: translate(calc(100vw - 180px), calc(100vh - 180px));
+  }
+}
+
+.offer-smooth {
+  position: fixed;
+  animation: offerRealisticBounce 3.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }

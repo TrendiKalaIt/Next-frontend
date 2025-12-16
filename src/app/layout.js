@@ -6,6 +6,8 @@ import NewUpdatesMsg from "@/components/NewUpdatesMsg";
 import ClientToaster from "./ClientToaster";
 // import OfferModal from "@/components/OfferModal";
 
+import OfferPopup from "@/components/OfferPopup";
+
 export const metadata = {
   title: "TrendiKala",
   description: "Best online store for fashion products",
@@ -55,6 +57,7 @@ export default function RootLayout({ children }) {
           <Navbar links={navLinks} />
           {/* <OfferModal /> */}
           <main>{children}</main>
+          <OfferPopup/>
           <Footer />
         </RootProvider>
       </body>
