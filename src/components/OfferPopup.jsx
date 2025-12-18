@@ -49,7 +49,7 @@ const OfferPopup = () => {
           </div>
 
           {/* 🔥 TOOLTIP (AS-IS, NO DESIGN CHANGE) */}
-          <div className="absolute bottom-[110%] left-1/2 pr-10 -translate-x-1/2 w-64 p-4 bg-white/95 backdrop-blur-md border border-amber-200 rounded-2xl shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none z-[60]">
+          <div className="absolute bottom-[110%] left-1/2 -translate-x-1/2 right-2 sm:right-auto max-w-[90vw] sm:max-w-64 p-4 bg-white/95 backdrop-blur-md border border-amber-200 rounded-2xl shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none z-[60]">
             <div className="relative">
               <h4 className="text-amber-900 font-bold text-[11px] mb-2 uppercase tracking-[0.1em] border-b border-amber-100 pb-1">
                 Offer Guidelines
@@ -58,16 +58,15 @@ const OfferPopup = () => {
                 To apply this coupon, please ensure your{" "}
                 <span className="text-amber-800 font-bold">cart is empty</span>.
                 This exclusive discount is valid for this{" "}
-                <span className="text-amber-800 font-bold">
-                  single product
-                </span>{" "}
-                purchase only.
+                <span className="text-amber-800 font-bold">product only</span>{" "}
+                and will not apply to other items in the cart.
               </p>
 
               {/* Tooltip Arrow */}
               <div className="absolute -bottom-[24px] left-1/2 -translate-x-1/2 border-[10px] border-transparent border-t-white/95"></div>
             </div>
           </div>
+
         </Link>
       </div>
     </div>
