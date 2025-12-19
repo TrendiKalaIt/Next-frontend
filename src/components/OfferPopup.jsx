@@ -131,7 +131,7 @@ const OfferPopup = () => {
                 <span className="text-amber-800 font-bold">
                   AFSANA / <span className="text-gray-600">Anarkali</span>
                 </span>{" "}
-                only.
+                only and will not apply to other items in the cart.
               </p>
 
               {/*  Mobile helper text */}
