@@ -17,7 +17,7 @@ const HeroCarousel = () => {
   const [slides, setSlides] = useState([
     {
       id: 1,
-      image: "sewing-thread.jpg",
+      image: "sewing-thread.webp",
       subtitle: "PREMIUM FABRICS",
       title: "Summer Fabric Collection",
       description:
@@ -29,7 +29,7 @@ const HeroCarousel = () => {
     },
     {
       id: 2,
-      image: "tailor-sewing-machine.jpg",
+      image: "tailor-sewing-machine.webp",
       subtitle: "DESIGNER CRAFT",
       title: "Custom Tailored Creations",
       description:
