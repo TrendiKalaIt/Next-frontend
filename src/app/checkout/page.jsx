@@ -100,8 +100,8 @@ const AddressSection = ({
                   <li
                     key={addr._id}
                     className={`p-3  border rounded-md cursor-pointer flex justify-between items-start ${selectedAddress && selectedAddress._id === addr._id
-                        ? "border-green-600 bg-green-50"
-                        : "border-gray-300"
+                      ? "border-green-600 bg-green-50"
+                      : "border-gray-300"
                       }`}
                     onClick={() => setSelectedAddress(addr)}
                   >
@@ -196,12 +196,7 @@ const CheckoutSection = ({
           </div>
         ))
       )}
-      {discountAmount > 0 && (
-        <div className="flex justify-between text-red-600 font-semibold font-body pt-2">
-          <span>Discount</span>
-          <span>- ₹{discountAmount.toFixed(2)}</span>
-        </div>
-      )}
+
       {appliedSlabName && (
         <div className="text-sm text-gray-600 font-body">
           Applied: {appliedSlabName}
@@ -213,6 +208,12 @@ const CheckoutSection = ({
           ₹{subtotal.toFixed(2)}
         </span>
       </div>
+      {discountAmount > 0 && (
+        <div className="flex justify-between text-red-600 font-semibold font-body pt-2">
+          <span>Discount</span>
+          <span>- ₹{discountAmount.toFixed(2)}</span>
+        </div>
+      )}
       <div className="flex justify-between text-gray-700">
         <span className="font-body">Delivery Charge</span>
         {freeDeliveryApplied ? (
@@ -242,8 +243,8 @@ const CheckoutSection = ({
         <div
           key={id}
           className={`flex items-center p-4 rounded-lg border cursor-pointer transition duration-200 ${paymentMethod === id
-              ? "border-green-500 bg-green-50"
-              : "border-gray-300"
+            ? "border-green-500 bg-green-50"
+            : "border-gray-300"
             }`}
           onClick={() => setPaymentMethod(id)}
         >
@@ -276,8 +277,8 @@ const CheckoutSection = ({
       onClick={handlePlaceOrder}
       disabled={loadingSubmit || !selectedAddress}
       className={` font-home mt-8 w-full bg-[#9caf88e0] text-white py-2 rounded-lg font-semibold text-lg shadow-md transition duration-300 ease-in-out ${loadingSubmit || !selectedAddress
-          ? "opacity-50 cursor-not-allowed"
-          : "hover:bg-[#9CAF88]"
+        ? "opacity-50 cursor-not-allowed"
+        : "hover:bg-[#9CAF88]"
         }`}
     >
       {loadingSubmit ? "Placing Order..." : "Place Order"}
@@ -402,6 +403,7 @@ const CheckoutDetails = () => {
             headers: { Authorization: `Bearer ${token}` },
           }
         );
+        console.log("Razorpay Order Response:", razorpayOrder);
 
         if (!razorpayOrder?.id) {
           toast.error("Failed to initiate payment. Please try again.");

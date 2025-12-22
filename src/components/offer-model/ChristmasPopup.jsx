@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect, useRef } from 'react';
 import { ShoppingBag, X, Star, Gift, Sparkles, Bell, Volume2, VolumeX } from 'lucide-react';
-
+import Link from "next/link";
 const App = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isRevealed, setIsRevealed] = useState(false);
@@ -65,8 +65,16 @@ const App = () => {
                         onClick={revealOffer}
                         className="w-full  flex flex-col items-center justify-center p-12 bg-gradient-to-b from-red-600 to-red-900 text-white cursor-pointer group relative overflow-hidden"
                     >
+                        <div className="absolute top-4 left-4 z-40 p-1 rounded-3xl bg-white/60 backdrop-blur-sm">
+                            <img
+                                src="/trendikala_logo_bg.webp"
+                                alt="Logo"
+                                className="w-[150px] md:w-32 h-auto"
+                            />
+                        </div>
+
                         {/* Background Jagmag Stars for Gift Screen */}
-                        <div className="absolute inset-0 opacity-30">
+                        <div className="absolute inset-0 opacity-80">
                             {[...Array(30)].map((_, i) => (
                                 <div key={i} className="absolute animate-pulse" style={{ top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 2}s` }}>
                                     <Star size={Math.random() * 15} fill="white" />
@@ -78,8 +86,8 @@ const App = () => {
                             <div className="absolute inset-0 bg-yellow-400 blur-[60px] opacity-40 group-hover:opacity-70 animate-pulse"></div>
                             <Gift size={140} className="relative z-10 text-yellow-400 drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)] animate-bounce" />
                         </div>
-                        <h2 className="text-2xl md:text-4xl font-black italic mb-4 text-center text-white drop-shadow-md">Apna Christmas Gift Kholein!</h2>
-                        <p className="text-2xl text-yellow-200 animate-pulse text-center font-bold tracking-widest uppercase">
+                        <h2 className="text-2xl md:text-4xl font-black font-heading italic mb-4 text-center text-white drop-shadow-md">Open Your Christmas Gift!</h2>
+                        <p className="text-2xl font-body text-yellow-200 animate-pulse text-center font-bold tracking-widest uppercase">
                             Click to Reveal Magic ✨
                         </p>
                     </div>
@@ -95,6 +103,14 @@ const App = () => {
 
                         {/* Left Design Side */}
                         <div className="relative w-full md:w-6/12 bg-red-700 overflow-hidden min-h-[250px]">
+                            <div className="absolute top-4 left-4 z-40 p-1 rounded-3xl bg-white/60 backdrop-blur-sm">
+                                <img
+                                    src="/trendikala_logo_bg.webp"
+                                    alt="Logo"
+                                    className="w-[150px] md:w-32 h-auto"
+                                />
+                            </div>
+
                             <div className="absolute inset-0 bg-gradient-to-br from-red-500 via-red-700 to-red-950 opacity-100"></div>
 
                             {/* Ghane Jagmag Stars */}
@@ -106,11 +122,11 @@ const App = () => {
                                         style={{
                                             top: `${Math.random() * 100}%`,
                                             left: `${Math.random() * 100}%`,
-                                            animationDelay: `${Math.random() * 5}s`,
-                                            transform: `scale(${Math.random() * 1.5})`
+                                            animationDelay: `${Math.random() * 1}s`,
+                                            transform: `scale(${Math.random() * 1.8})`
                                         }}
                                     >
-                                        <Star size={Math.random() * 12 + 4} className="text-yellow-100 fill-yellow-100 drop-shadow-[0_0_8px_rgba(253,224,71,0.8)]" />
+                                        <Star size={Math.random() * 20 + 4} className="text-yellow-400  drop-shadow-[0_0_8px_rgba(253,224,71,1.8)]" />
                                     </div>
                                 ))}
                             </div>
@@ -130,10 +146,10 @@ const App = () => {
                                     </div>
                                 </div>
 
-                                <h3 className="text-2xl md:text-4xl font-black italic drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] tracking-tight">Ho Ho Ho!</h3>
+                                <h3 className="text-2xl font-heading md:text-4xl font-black italic drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] tracking-tight">Ho Ho Ho!</h3>
                                 <div className=" mt-2 md:mt-8 space-y-3 border-t-2 border-white/20  pt-2 md:pt-8 w-full">
-                                    <p className="text-sm uppercase tracking-[0.5em] font-black text-yellow-300">Mega Holiday</p>
-                                    <p className="text-2xl md:text-4xl font-black tracking-tighter leading-none uppercase">Ladies Special</p>
+                                    <p className="text-sm font-body uppercase tracking-[0.5em] font-black text-yellow-300">Mega Holiday</p>
+                                    <p className="text-2xl font-heading md:text-4xl font-black tracking-tighter leading-none uppercase">Ladies Special</p>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +157,7 @@ const App = () => {
                         {/* Right Content Side */}
                         <div className="w-full md:w-7/12 p-5 md:p-14 flex flex-col justify-center bg-white">
                             <div className="flex items-center gap-3 mb-2 md:mb-6 text-red-600 font-black text-sm uppercase tracking-[0.2em]">
-                                <Sparkles size={20} className="text-yellow-500 fill-yellow-500 animate-spin-slow" />
+                                <Sparkles size={20} className="text-yellow-500 font-body fill-yellow-500 animate-spin-slow" />
                                 <span>The Christmas Miracle</span>
                             </div>
 
@@ -149,15 +165,16 @@ const App = () => {
                                 FLAT <span className="text-red-600 drop-shadow-sm">20% OFF</span>
                             </h2>
 
-                            <p className="text-gray-600 mb-3 md:mb-6  font-medium leading-relaxed">
-                                Kurtis, Anarkali aur Ethnic Dresses par saal ki sabase badi sale. <span className="text-red-600 font-bold ">Santa's choice for you!</span>
+                            <p className="text-gray-600 font-body mb-3 md:mb-6  font-medium leading-relaxed">
+                                The biggest sale of the year on Kurtis, Anarkalis, and Ethnic Dresses.
+                                <span className="text-red-600 font-bold ">Santa’s special pick for you!</span>
                             </p>
 
                             <div className="space-y-4">
                                 <div className="p-4 bg-red-50 border-2 border-dotted border-red-200 rounded-[2rem] flex justify-between items-center group transition-all hover:border-red-400">
                                     <div>
-                                        <p className="text-xs text-red-400 font-black uppercase tracking-widest mb-1">CLAIM WITH CODE</p>
-                                        <p className="text-3xl font-mono font-black text-red-700 tracking-tighter">SANTA50</p>
+                                        <p className="text-xs font-body text-red-400 font-black uppercase tracking-widest mb-1">CLAIM WITH CODE</p>
+                                        <p className="text-3xl font-mono font-black text-red-700 tracking-tighter">SANTATK20</p>
                                     </div>
                                     <button
                                         onClick={() => {
@@ -171,12 +188,14 @@ const App = () => {
                                     </button>
                                 </div>
 
-                                <button className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-4 rounded-3xl font-black text-xl flex items-center justify-center gap-2 hover:shadow-[0_15px_30px_rgba(220,38,38,0.4)] transition-all transform hover:-translate-y-1 group">
-                                    <ShoppingBag size={28} className="group-hover:rotate-12 transition-transform" />
-                                    SHOP COLLECTION
-                                </button>
+                                <Link href="/categories">
+                                    <button className="w-full font-heading mt-2 bg-gradient-to-r from-red-600 to-red-700 text-white py-4 rounded-3xl font-black text-xl flex items-center justify-center gap-2 hover:shadow-[0_15px_30px_rgba(220,38,38,0.4)] transition-all transform hover:-translate-y-1 group">
+                                        <ShoppingBag size={28} className="group-hover:rotate-12 transition-transform" />
+                                        SHOP COLLECTION
+                                    </button>
+                                </Link>
 
-                                <p className="text-center text-gray-400 text-xs font-bold uppercase tracking-widest">
+                                <p className="text-center font-body text-gray-400 text-xs font-bold uppercase tracking-widest">
                                     Free Delivery
                                     {/* on Orders Above ₹999 */}
                                 </p>
