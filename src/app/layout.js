@@ -5,7 +5,7 @@ import RootProvider from "./RootProvider";
 import NewUpdatesMsg from "@/components/NewUpdatesMsg";
 import ClientToaster from "./ClientToaster";
 // import OfferModal from "@/components/OfferModal";
-
+import ChristmsaPpup from "@/components/offer-model/ChristmasPopup"
 import OfferPopup from "@/components/OfferPopup";
 
 export const metadata = {
@@ -56,6 +56,7 @@ export default function RootLayout({ children }) {
           <NewUpdatesMsg />
           <Navbar links={navLinks} />
           {/* <OfferModal /> */}
+          <ChristmsaPpup />
           <main>{children}</main>
           <OfferPopup/>
           <Footer />
