@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -54,6 +55,12 @@ const NewArrivals = () => {
       desktop: "exclusive-offer-first-100-orders.png",
       mobile: "exclusive-offer-first-100-orders-mobile.png",
       link: "/long-kurti/gulnaaz",
+    }
+    ,
+    {
+      desktop: "exclusive-offer-friday-desktop.png",
+      mobile: "exclusive-offer-friday-mobile.png",
+      link: "/anarkali/afsana",
     },
     {
       desktop: "sewing-machine-used-patterned-material.webp",
