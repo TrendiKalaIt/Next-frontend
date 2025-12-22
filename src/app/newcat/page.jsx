@@ -85,16 +85,12 @@ const CategoriesPage = () => {
   const isSingleCategory = activeFilter !== "All";
 
   return (
-    <div className="min-h-screen bg-[#FBFBFB] text-slate-900">
+    <div className="min-h-screen bg-[#FBFBFB] text-slate-900 md:mt-16">
       {/* HEADER */}
-      <header className="pt-12 pb-6 px-6 md:mt-8 max-w-[1400px] mx-auto">
-        <h1 className="text-5xl md:text-8xl font-heading italic">
-          Shop by Style
-        </h1>
-      </header>
+    
 
       {/* FILTER BAR */}
-      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+      <nav className="sticky top-0 z-20 bg-white/90 backdrop-blur border-b">
         <div className="max-w-[1400px] mx-auto px-6 h-14 flex items-center gap-6 overflow-x-auto no-scrollbar">
           {filters.map((filter) => (
             <button
@@ -128,8 +124,8 @@ const CategoriesPage = () => {
           className={`grid gap-4 md:gap-2 ${isSingleCategory
             ? "grid-cols-1 sm:grid-cols-3 md:auto-rows-[570px] auto-rows-[370px]"
             : viewMode === "editorial"
-              ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-5 auto-rows-[350px] md:auto-rows-[300px]"
-              : "grid-cols-2 lg:grid-cols-6 auto-rows-[320px]"
+              ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-5 auto-rows-[350px] md:auto-rows-[330px]"
+              : "grid-cols-2 lg:grid-cols-6 auto-rows-[280px] md:auto-rows-[320px]"
             }`}
         >
           {visibleCategories.map((cat) => {
@@ -167,7 +163,7 @@ const CategoriesPage = () => {
                 )}
 
                 {/* CONTENT */}
-                <div className="absolute inset-0 flex items-end p-4 z-20">
+                <div className="absolute inset-0 flex items-end p-4 z-10">
                   <div className="bg-white/70 backdrop-blur p-3 w-full">
                     <div className="flex justify-between items-center">
                       <div>
