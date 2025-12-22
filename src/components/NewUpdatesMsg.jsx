@@ -83,7 +83,7 @@
 import { Gift } from 'lucide-react';
 
 const NewUpdatesMsg = () => {
-  const validTill = "25 Dec 2025";
+  const validTill = "4 JAN 2026";
 
   return (
     <div className="bg-gray-100 flex items-center justify-center font-sans text-gray-800 overflow-hidden">
