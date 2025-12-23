@@ -1,7 +1,8 @@
 'use client'; // Next.js client component
 
 import { useState, useEffect, useRef } from 'react';
-import { Heart, ShoppingCart, Search, User, Menu, X } from 'lucide-react';
+import { Heart, ShoppingBag , Search, User, Menu, X, Box } from 'lucide-react';
+import { TbLogin2, TbLogout } from "react-icons/tb";
 import { useRouter, usePathname } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '@/store/authSlice';
@@ -183,7 +184,7 @@ export default function Navbar({ links = [] }) {
           >
             {user && (
               <a href="/cart" className="relative">
-                <ShoppingCart className="w-6 h-6 hover:text-green-500 transition" />
+                <ShoppingBag className="w-6 h-6 hover:text-green-500 transition" />
                 {cartCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-[#9CAF88] text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
                     {cartCount}
@@ -247,7 +248,7 @@ export default function Navbar({ links = [] }) {
                   className="flex items-center hover:text-green-500"
                   type="button"
                 >
-                  <User className="w-6 h-6 cursor-pointer transition" />
+                  <TbLogin2 className="w-6 h-6 cursor-pointer transition" />
                   <span className="ml-1 text-md font-home">Login</span>
                 </button>
               )}
@@ -259,27 +260,33 @@ export default function Navbar({ links = [] }) {
                       router.push('/my-orders');
                       setShowUserDropdown(false);
                     }}
-                    className="block text-[#9CAF88] w-full px-4 py-2 text-left hover:bg-gray-100"
+                    className="flex text-[#9CAF88] w-full px-4 py-2 text-left hover:bg-gray-100"
                     type="button"
                   >
-                    My Orders
+
+                    <Box className="w-6 h-6 cursor-pointer transition" />
+                    <span className="ml-1 text-md font-home"> My Orders</span>
+
                   </button>
                   <button
                     onClick={() => {
                       router.push('/profile');
                       setShowUserDropdown(false);
                     }}
-                    className="block text-[#9CAF88] w-full px-4 py-2 text-left hover:bg-gray-100"
+                    className="flex text-[#9CAF88] w-full px-4 py-2 text-left hover:bg-gray-100"
                     type="button"
                   >
-                    Profile
+
+                    <User className="w-6 h-6 cursor-pointer transition" />
+                    <span className="ml-1 text-md font-home">Profile</span>
                   </button>
                   <button
                     onClick={handleLogout}
-                    className="block text-[#9CAF88] w-full px-4 py-2 text-left hover:bg-gray-100"
+                    className="flex text-[#9CAF88] w-full px-4 py-2 text-left hover:bg-gray-100"
                     type="button"
                   >
-                    Logout
+                    <TbLogout className="w-6 h-6 cursor-pointer transition" />
+                    <span className="ml-1 text-md font-home">Logout</span>
                   </button>
                 </div>
               )}
@@ -352,16 +359,17 @@ export default function Navbar({ links = [] }) {
                     </svg>
                   </button>
                   {showUserDropdown && (
-                    <div className="font-home bg-white border rounded shadow-lg mt-1 absolute right-0 left-0 w-full z-50">
+                    <div className="font-home bg-white border rounded shadow-lg mt-1  right-0 left-0 w-full z-50">
                       <button
                         onClick={() => {
                           router.push('/my-orders');
                           setShowUserDropdown(false);
                           setIsMenuOpen(false);
                         }}
-                        className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+                        className="flex w-full px-4 py-2 text-left hover:bg-gray-100"
                       >
-                        My Orders
+                        <Box className="w-6 h-6 cursor-pointer transition" />
+                        <span className="ml-1 text-md font-home"> My Orders</span>
                       </button>
                       <button
                         onClick={() => {
@@ -369,9 +377,10 @@ export default function Navbar({ links = [] }) {
                           setShowUserDropdown(false);
                           setIsMenuOpen(false);
                         }}
-                        className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+                        className="flex w-full px-4 py-2 text-left hover:bg-gray-100"
                       >
-                        Profile
+                        <User className="w-6 h-6 cursor-pointer transition" />
+                        <span className="ml-1 text-md font-home">Profile</span>
                       </button>
                       <button
                         onClick={() => {
@@ -379,9 +388,10 @@ export default function Navbar({ links = [] }) {
                           setShowUserDropdown(false);
                           setIsMenuOpen(false);
                         }}
-                        className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+                        className="flex  w-full px-4 py-2 text-left hover:bg-gray-100"
                       >
-                        Logout
+                        <TbLogout className="w-6 h-6 cursor-pointer transition" />
+                        <span className="ml-1 text-md font-home">Logout</span>
                       </button>
                     </div>
                   )}
@@ -394,14 +404,16 @@ export default function Navbar({ links = [] }) {
                   }}
                   className="flex font-home items-center px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-green-700 cursor-pointer"
                 >
-                  <User className="w-6 h-6 mr-2" />
-                  Login
+                  <TbLogin2 className="w-6 h-6 cursor-pointer transition" />
+                  <span className="ml-1 text-md font-home">Login</span>
                 </button>
+
               )}
             </li>
           </ul>
         </div>
-      )}
-    </nav>
+      )
+      }
+    </nav >
   );
 }
