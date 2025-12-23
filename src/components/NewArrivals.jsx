@@ -51,6 +51,11 @@ const NewArrivals = () => {
       mobile: "/Offer bnner/mobile/christmas-offer-monile.png",
       link: "/anarkali/afsana",
     },
+     {
+      desktop: "/Offer bnner/desktop/custom-fashion-desktop.png",
+      mobile: "/Offer bnner/mobile/custom-fashion-mobile.png",
+      link: "/enquiry-us",
+    },
     {
       desktop: "exclusive-offer-first-100-orders.png",
       mobile: "exclusive-offer-first-100-orders-mobile.png",
@@ -62,16 +67,16 @@ const NewArrivals = () => {
       mobile: "exclusive-offer-friday-mobile.png",
       link: "/anarkali/afsana",
     },
-    {
-      desktop: "sewing-machine-used-patterned-material.webp",
-      mobile: "sewing-machine-used-patterned-material.webp",
-      link: "/dress/aura",
-    },
-    {
-      desktop: "fabrics-rolled-stacked.webp",
-      mobile: "fabrics-rolled-stacked.webp",
-      link: "/anarkali/afsana",
-    },
+    // {
+    //   desktop: "sewing-machine-used-patterned-material.webp",
+    //   mobile: "sewing-machine-used-patterned-material.webp",
+    //   link: "/dress/aura",
+    // },
+    // {
+    //   desktop: "fabrics-rolled-stacked.webp",
+    //   mobile: "fabrics-rolled-stacked.webp",
+    //   link: "/anarkali/afsana",
+    // },
   ];
 
 
