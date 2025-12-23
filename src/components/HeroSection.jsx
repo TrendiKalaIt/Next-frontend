@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight, ShoppingBag, Sparkles, X, Loader2 } from 'lucide-react';
 import Link from "next/link";

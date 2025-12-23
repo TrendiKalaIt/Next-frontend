@@ -47,6 +47,11 @@ const NewArrivals = () => {
   // MAIN BANNER
   const bannerImages = [
     {
+      desktop: "/Offer bnner/desktop/christmas-offer-desktop.png",
+      mobile: "/Offer bnner/mobile/christmas-offer-monile.png",
+      link: "/anarkali/afsana",
+    },
+    {
       desktop: "exclusive-offer-first-100-orders.png",
       mobile: "exclusive-offer-first-100-orders-mobile.png",
       link: "/long-kurti/gulnaaz",
