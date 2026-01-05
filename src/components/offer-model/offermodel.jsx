@@ -371,13 +371,13 @@ const NewYearOfferPopup = () => {
                     Use Code
                   </p>
                   <p className="text-3xl font-black text-purple-700">
-                    NWEYTK26
+                    NEWYTK26
                   </p>
                 </div>
 
                 <button
                   onClick={() => {
-                    navigator.clipboard.writeText("NWEYTK26");
+                    navigator.clipboard.writeText("NEWYTK26");
                   }}
                   className="bg-black text-white px-6 py-3 rounded-2xl font-black hover:bg-purple-700"
                 >
