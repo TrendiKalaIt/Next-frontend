@@ -47,26 +47,27 @@ const NewArrivals = () => {
   // MAIN BANNER
   const bannerImages = [
     {
-      desktop: "/Offer bnner/desktop/christmas-offer-desktop.png",
-      mobile: "/Offer bnner/mobile/christmas-offer-monile.png",
+      desktop: "/Offer bnner/desktop/new_year_offer_desktop.png",
+      mobile: "/Offer bnner/mobile/new_year_offer_mobile.png",
       link: "/anarkali/afsana",
     },
-     {
+    {
       desktop: "/Offer bnner/desktop/custom-fashion-desktop.png",
       mobile: "/Offer bnner/mobile/custom-fashion-mobile.png",
       link: "/enquiry-us",
     },
+
     {
       desktop: "exclusive-offer-first-100-orders.png",
       mobile: "exclusive-offer-first-100-orders-mobile.png",
       link: "/long-kurti/gulnaaz",
     }
-    ,
-    {
-      desktop: "exclusive-offer-friday-desktop.png",
-      mobile: "exclusive-offer-friday-mobile.png",
-      link: "/anarkali/afsana",
-    },
+
+    // {
+    //   desktop: "exclusive-offer-friday-desktop.png",
+    //   mobile: "exclusive-offer-friday-mobile.png",
+    //   link: "/anarkali/afsana",
+    // },
     // {
     //   desktop: "sewing-machine-used-patterned-material.webp",
     //   mobile: "sewing-machine-used-patterned-material.webp",
@@ -139,8 +140,8 @@ const NewArrivals = () => {
               className="absolute inset-0 transition-transform duration-700 ease-in-out"
               style={{
                 backgroundImage: `url('${typeof window !== "undefined" && window.innerWidth < 768
-                    ? slide.mobile
-                    : slide.desktop
+                  ? slide.mobile
+                  : slide.desktop
                   }')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",

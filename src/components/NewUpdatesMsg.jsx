@@ -83,33 +83,33 @@
 import { Gift } from 'lucide-react';
 
 const NewUpdatesMsg = () => {
-  const validTill = "4 JAN 2026";
+  // const validTill = "4 JAN 2026";
 
   return (
     <div className="bg-gray-100 flex items-center justify-center font-sans text-gray-800 overflow-hidden">
       <div className="w-full">
-        <div className="relative text-white p-2 flex items-center blinking-background">
+        <div className="relative text-gray-700 p-2 flex items-center blinking-background">
           <div className="updates-marquee-container">
             <div className="updates-marquee-content md:text-base tracking-wide flex items-center gap-8 font-heading">
 
               <span className="flex items-center uppercase font-bold gap-2 text-[20px]">
                 <Gift className="w-6 h-6 text-[#fcd34d]" />
-                🎄 Christmas Special: Flat 20% OFF on Your Favorite Styles • Valid till {validTill} 🎅
+                “Exclusive Offer: Complimentary gifts with the first 100 orders.”
               </span>
 
               <span className="flex items-center uppercase font-bold gap-2 text-[20px]">
                 <Gift className="w-6 h-6 text-[#fcd34d]" />
-                🎄 Christmas Special: Flat 20% OFF on Your Favorite Styles • Valid till {validTill} 🎅
+                “Exclusive Offer: Complimentary gifts with the first 100 orders.”
               </span>
 
               <span className="flex items-center uppercase font-bold gap-2 text-[20px]">
                 <Gift className="w-6 h-6 text-[#fcd34d]" />
-                🎄 Christmas Special: Flat 20% OFF on Your Favorite Styles • Valid till {validTill} 🎅
+                “Exclusive Offer: Complimentary gifts with the first 100 orders.”
               </span>
 
               <span className="flex items-center uppercase font-bold gap-2 text-[20px]">
                 <Gift className="w-6 h-6 text-[#fcd34d]" />
-                🎄 Christmas Special: Flat 20% OFF on Your Favorite Styles • Valid till {validTill} 🎅
+                “Exclusive Offer: Complimentary gifts with the first 100 orders.”
               </span>
 
             </div>
@@ -120,9 +120,9 @@ const NewUpdatesMsg = () => {
       <style jsx>{`
         /* Background blinking animation */
       @keyframes blink-bg {
-  0%   { background-color: #7f1d1d; }   /* Dark Red */
-  50%  { background-color: #dc2626; }   /* Christmas Red */
-  100% { background-color: #991b1b; }   /* Deep Red */
+   0% { background-color: #f3f4f6; }
+       50% { background-color: #fcd34d; }
+           100% { background-color: #f3f4f6; }
 }
 
         .blinking-background {
