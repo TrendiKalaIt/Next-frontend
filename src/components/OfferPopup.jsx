@@ -15,7 +15,7 @@ const OfferPopup = () => {
 
   //  Popup delay
   useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 3500);
+    const timer = setTimeout(() => setShow(true), 100);
     return () => clearTimeout(timer);
   }, []);
 

@@ -184,7 +184,7 @@ export default function Navbar({ links = [] }) {
           >
             {user && (
               <a href="/cart" className="relative">
-                <ShoppingBag className="w-6 h-6 hover:text-green-500 transition" />
+                <ShoppingBag className={`w-6 h-6 hover:text-green-500 transition ${getNavLinkClass(false)}`} />
                 {cartCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-[#9CAF88] text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
                     {cartCount}
@@ -194,7 +194,7 @@ export default function Navbar({ links = [] }) {
             )}
             {user && (
               <a href="/wishlist" className="relative">
-                <Heart className="w-6 h-6 cursor-pointer hover:text-green-500 transition" />
+                <Heart className={`w-6 h-6 cursor-pointer hover:text-green-500 transition  ${getNavLinkClass(false)}`} />
                 {wishlistCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-[#9CAF88] text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
                     {wishlistCount}
